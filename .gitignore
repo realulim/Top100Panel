@@ -1,0 +1,7 @@
+.DS_Store
+nbproject
+nb-configuration.xml
+nbactions.xml
+build.properties
+target
+*.db
