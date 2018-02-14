@@ -19,8 +19,8 @@ import com.vaadin.ui.StyleGenerator;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.components.grid.EditorSaveEvent;
 import com.vaadin.ui.renderers.LocalDateRenderer;
-import de.top100golfcourses.panel.entity.BucketColor;
 
+import de.top100golfcourses.panel.entity.BucketColor;
 import de.top100golfcourses.panel.entity.RankedCourse;
 import de.top100golfcourses.panel.entity.Rankings;
 
