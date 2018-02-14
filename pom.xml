@@ -75,12 +75,11 @@
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-context-menu</artifactId>
-            <version>2.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.dizitart</groupId>
             <artifactId>nitrite</artifactId>
-            <version>2.1.0</version>
+            <version>2.1.1</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
