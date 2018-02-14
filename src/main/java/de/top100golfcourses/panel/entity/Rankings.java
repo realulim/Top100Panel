@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Objects;
-import java.util.logging.Logger;
 
 import org.dizitart.no2.objects.Id;
 

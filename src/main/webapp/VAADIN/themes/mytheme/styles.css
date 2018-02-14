@@ -15069,23 +15069,23 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .v-grid-cell.colorGold {
-	background-image: url('gold2.png');
+	background-image: url('gold.png');
 }
 
 .mytheme .v-grid-cell.colorSilver {
-	background-image: url('silver2.png');
+	background-image: url('silver.png');
 }
 
 .mytheme .v-grid-cell.colorBronze {
-	background-image: url('bronze2.png');
+	background-image: url('bronze.png');
 }
 
 .mytheme .v-grid-cell.colorField {
-	background-image: url('field2.png');
+	background-image: url('field.png');
 }
 
 .mytheme .v-grid-cell.colorDQ {
-	background-image: url('dq2.png');
+	background-image: url('dq.png');
 }
 
 .mytheme .v-grid-cell.colorBlack {

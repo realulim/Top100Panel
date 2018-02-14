@@ -95,6 +95,10 @@ public final class RankingGrid extends CustomComponent {
         return this.rankings;
     }
 
+    public Grid<RankedCourse> getGrid() {
+        return grid;
+    }
+
     public boolean isEditable() {
         return editable;
     }

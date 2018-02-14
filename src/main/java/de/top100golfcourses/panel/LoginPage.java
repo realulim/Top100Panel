@@ -23,7 +23,7 @@ public final class LoginPage extends VerticalLayout implements View {
     public static final String NAME = "";
 
     public LoginPage() {
-        Image logo = new Image(null, new ThemeResource("logo2.jpg"));
+        Image logo = new Image(null, new ThemeResource("logo.jpg"));
 
         Panel panel = new Panel("<b>German Panel</b>");
         panel.setSizeUndefined();
