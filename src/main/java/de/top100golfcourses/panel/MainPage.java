@@ -46,11 +46,12 @@ public final class MainPage extends VerticalLayout implements View {
     private Button createRankingButton = null;
     private Button deleteRankingButton = null;
     private Button exportRankingButton = null;
+    private final String user;
 
     public static final String NAME = "Main";
 
     public MainPage() {
-        String user = VaadinSession.getCurrent().getAttribute("user").toString();
+        user = VaadinSession.getCurrent().getAttribute("user").toString();
         Role role = VaadinSession.getCurrent().getAttribute(Role.class);
         selectableRankings = storage.findAllSortByUser(user);
 
@@ -97,8 +98,7 @@ public final class MainPage extends VerticalLayout implements View {
                 footer.removeComponent(saveRankingButton);
             }
             if (deleteRankingButton != null && !deleteRankingButton.isVisible()) deleteRankingButton.setVisible(true);
-            // commented out, not working yet
-            // installExportRankingButton();
+//            installExportRankingButton();
         });
         body.addComponent(comboBox);
     }
@@ -152,7 +152,10 @@ public final class MainPage extends VerticalLayout implements View {
         if (exportRankingButton == null) {
             exportRankingButton = new Button("Export Ranking");
             exportRankingButton.addClickListener((ClickEvent event) -> {
-                ExportToExcel<RankedCourse> export = ExcelExporter.export(rankingGrid.getGrid());
+                ExportToExcel<RankedCourse> export = ExcelExporter.export(
+                        user, 
+                        rankingGrid.getRankings().getId(), 
+                        rankingGrid.getGrid());
                 export.export();
             });
             exportRankingButton.setIcon(VaadinIcons.DOWNLOAD_ALT);

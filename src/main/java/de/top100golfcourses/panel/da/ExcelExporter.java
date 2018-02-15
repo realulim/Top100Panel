@@ -18,31 +18,30 @@ import de.top100golfcourses.panel.entity.RankedCourse;
 
 public class ExcelExporter {
 
-    private static final transient String[] visibleColumns = new String[]{"pos", "bucket", "name", "lastPlayed", "comments"};
-    private static final transient String[] columnHeaders = new String[]{"Pos", "Color", "Course", "Played", "Comments"};
+    private static final transient String[] visibleColumns = new String[] {"pos", "bucket", "name", "lastPlayed", "comments"};
+    private static final transient String[] columnHeaders = new String[] {"Pos", "Color", "Course", "Played", "Comments"};
 
-    public static ExportToExcel<RankedCourse> export(Grid<RankedCourse> grid) {
+    public static ExportToExcel<RankedCourse> export(String user, String title, Grid<RankedCourse> grid) {
         ExportExcelComponentConfiguration<RankedCourse> componentConfig = new ExportExcelComponentConfigurationBuilder<RankedCourse>()
                 .withGrid(grid)
                 .withVisibleProperties(visibleColumns)
                 .withHeaderConfigs(
                         Arrays.asList(
                                 new ComponentHeaderConfigurationBuilder()
-                                        .withAutoFilter(true)
                                         .withColumnKeys(columnHeaders)
                                         .build()))
                 .withIntegerFormattingProperties(Arrays.asList("pos", "bucket"))
                 .build();
         ExportExcelSheetConfiguration<RankedCourse> sheetConfig = new ExportExcelSheetConfigurationBuilder<RankedCourse>()
-                .withReportTitle("Rankings Title")
-                .withSheetName("Sheet Name")
+                .withReportTitle(title)
+                .withSheetName("Top 100 Golf Courses")
                 .withComponentConfigs(Arrays.asList(componentConfig))
                 .withIsHeaderSectionRequired(true)
                 .withDateFormat("yyyy-MM-dd")
                 .build();
         ExportExcelConfiguration<RankedCourse> excelConfig = new ExportExcelConfigurationBuilder<RankedCourse>()
                 .withSheetConfigs(Arrays.asList(sheetConfig))
-                .withExportFileName("rankings.xls")
+                .withGeneratedBy(user)
                 .build();
         return new ExportToExcel<>(ExportType.XLS, excelConfig);
     }
