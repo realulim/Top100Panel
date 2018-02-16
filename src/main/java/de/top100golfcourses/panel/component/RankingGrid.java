@@ -48,11 +48,11 @@ public final class RankingGrid extends CustomComponent {
         };
         grid.setSizeFull();
 
-        grid.addColumn(RankedCourse::getPos).setCaption("").setExpandRatio(0);
-        grid.addColumn(course -> "").setCaption("").setStyleGenerator(bucketStyleGenerator).setExpandRatio(0);
-        grid.addColumn(RankedCourse::getName).setEditorComponent(nameField, RankedCourse::setName).setCaption("Name").setExpandRatio(1);
-        grid.addColumn(RankedCourse::getLastPlayed, new LocalDateRenderer("yyyy-MM-dd")).setEditorBinding(lastPlayed).setCaption("Played").setExpandRatio(0);
-        grid.addColumn(RankedCourse::getComments).setEditorComponent(commentsField, RankedCourse::setComments).setCaption("Comments").setExpandRatio(3);
+        grid.addColumn(RankedCourse::getPos).setId("pos").setCaption("").setExpandRatio(0);
+        grid.addColumn(course -> "").setId("bucket").setCaption("").setStyleGenerator(bucketStyleGenerator).setExpandRatio(0);
+        grid.addColumn(RankedCourse::getName).setId("course").setEditorComponent(nameField, RankedCourse::setName).setCaption("Name").setExpandRatio(1);
+        grid.addColumn(RankedCourse::getLastPlayed, new LocalDateRenderer("yyyy-MM-dd")).setId("played").setEditorBinding(lastPlayed).setCaption("Played").setExpandRatio(0);
+        grid.addColumn(RankedCourse::getComments).setId("comments").setEditorComponent(commentsField, RankedCourse::setComments).setCaption("Comments").setExpandRatio(3);
         grid.setSelectionMode(SelectionMode.SINGLE);
         grid.getEditor().setEnabled(this.editable);
         grid.getEditor().addSaveListener((EditorSaveEvent<RankedCourse> event) -> {

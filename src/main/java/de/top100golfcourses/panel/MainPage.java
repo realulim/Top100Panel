@@ -17,16 +17,13 @@ import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window.CloseEvent;
 import com.vaadin.ui.themes.ValoTheme;
 
-import org.vaadin.addons.excelexporter.ExportToExcel;
-
 import de.top100golfcourses.panel.component.ConfirmDeleteDialog;
 import de.top100golfcourses.panel.component.CreateRankingDialog;
 import de.top100golfcourses.panel.component.RankingGrid;
 import de.top100golfcourses.panel.component.UserMenu;
-import de.top100golfcourses.panel.da.ExcelExporter;
 import de.top100golfcourses.panel.da.NitritePersistence;
 import de.top100golfcourses.panel.da.Persistence;
-import de.top100golfcourses.panel.entity.RankedCourse;
+import de.top100golfcourses.panel.da.RankingsExporter;
 import de.top100golfcourses.panel.entity.Rankings;
 import de.top100golfcourses.panel.entity.Role;
 
@@ -98,7 +95,7 @@ public final class MainPage extends VerticalLayout implements View {
                 footer.removeComponent(saveRankingButton);
             }
             if (deleteRankingButton != null && !deleteRankingButton.isVisible()) deleteRankingButton.setVisible(true);
-//            installExportRankingButton();
+            installExportRankingButton();
         });
         body.addComponent(comboBox);
     }
@@ -152,11 +149,7 @@ public final class MainPage extends VerticalLayout implements View {
         if (exportRankingButton == null) {
             exportRankingButton = new Button("Export Ranking");
             exportRankingButton.addClickListener((ClickEvent event) -> {
-                ExportToExcel<RankedCourse> export = ExcelExporter.export(
-                        user, 
-                        rankingGrid.getRankings().getId(), 
-                        rankingGrid.getGrid());
-                export.export();
+                RankingsExporter.create(rankingGrid.getGrid()).export();
             });
             exportRankingButton.setIcon(VaadinIcons.DOWNLOAD_ALT);
             exportRankingButton.addStyleName(ValoTheme.BUTTON_PRIMARY);
