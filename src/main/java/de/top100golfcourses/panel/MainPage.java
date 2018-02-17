@@ -71,6 +71,7 @@ public final class MainPage extends VerticalLayout implements View {
         if (role == Role.Correspondent || role == Role.Panelist) {
             installCreateRankingButton();
         }
+        installExportRankingButton();
         if (role == Role.Correspondent) {
             installDeleteRankingButton();
         }
@@ -94,8 +95,8 @@ public final class MainPage extends VerticalLayout implements View {
             else if (saveRankingButton != null) {
                 footer.removeComponent(saveRankingButton);
             }
+            if (exportRankingButton != null && !exportRankingButton.isVisible()) exportRankingButton.setVisible(true);
             if (deleteRankingButton != null && !deleteRankingButton.isVisible()) deleteRankingButton.setVisible(true);
-            installExportRankingButton();
         });
         body.addComponent(comboBox);
     }
@@ -153,6 +154,7 @@ public final class MainPage extends VerticalLayout implements View {
             });
             exportRankingButton.setIcon(VaadinIcons.DOWNLOAD_ALT);
             exportRankingButton.addStyleName(ValoTheme.BUTTON_PRIMARY);
+            exportRankingButton.setVisible(false);
             footer.addComponent(exportRankingButton);
         }
     }
