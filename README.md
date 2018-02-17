@@ -1,14 +1,4 @@
 Top100Panel
 ==============
 
-By-Line
-
-Workflow
-========
-
-- TODO
-
-Client-Side compilation
--------------------------
-
-TBD
+Webapp to manage a regional Panel of Top100GolfCourses.com
