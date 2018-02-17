@@ -8,3 +8,7 @@ Features
 - enter course information
 - create and save rankings
 - export rankings to XLS
+- roles:
+  - kibitzer (read only)
+  - panelist (read/write)
+  - correspondent (read/write/delete)
