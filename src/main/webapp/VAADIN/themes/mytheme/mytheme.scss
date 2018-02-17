@@ -75,5 +75,8 @@ $v-background-color: hsl(65, 30%, 95%);
     .contextmenupadding {
         padding-left: 10px !important;
     }
-
+    .v-panel-caption {
+        background-image: -webkit-linear-gradient(top, gold 0%, lightgoldenrodyellow 100%);
+        background-image: linear-gradient(to bottom, gold 0%, lightgoldenrodyellow 100%);
+    }
 }

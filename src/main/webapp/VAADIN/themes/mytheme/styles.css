@@ -15095,3 +15095,8 @@ div.v-layout.v-horizontal.v-widget {
 .mytheme .contextmenupadding {
 	padding-left: 10px !important;
 }
+
+.mytheme .v-panel-caption {
+	background-image: -webkit-linear-gradient(top, gold 0%, lightgoldenrodyellow 100%);
+	background-image: linear, to bottom, gold 0%, lightgoldenrodyellow 100%;
+}
