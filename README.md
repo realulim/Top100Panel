@@ -9,6 +9,6 @@ Features
 - create and save rankings
 - export rankings to XLS
 - roles:
-  - kibitzer (read only)
-  - panelist (read/write)
-  - correspondent (read/write/delete)
+  - Kibitzer (read only)
+  - Panelist (read/write own rankings, read other rankings)
+  - correspondent (read/write own rankings, read other rankings, delete all rankings)
