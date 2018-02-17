@@ -149,7 +149,7 @@ public final class MainPage extends VerticalLayout implements View {
         if (exportRankingButton == null) {
             exportRankingButton = new Button("Export Ranking");
             exportRankingButton.addClickListener((ClickEvent event) -> {
-                RankingsExporter.create(rankingGrid.getGrid()).export();
+                new RankingsExporter(rankingGrid.getGrid(), rankingGrid.getRankings().getId()).export();
             });
             exportRankingButton.setIcon(VaadinIcons.DOWNLOAD_ALT);
             exportRankingButton.addStyleName(ValoTheme.BUTTON_PRIMARY);
