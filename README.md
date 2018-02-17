@@ -1,7 +1,7 @@
 Top100Panel
 ===========
 
-Webapp to manage a regional panel of Top100GolfCourses.com
+Experimental webapp to manage a regional panel of Top100GolfCourses.com
 
 Features
 ========
