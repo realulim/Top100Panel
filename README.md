@@ -11,4 +11,4 @@ Features
 - roles:
   - Kibitzer (read only)
   - Panelist (read/write own rankings, read other rankings)
-  - correspondent (read/write own rankings, read other rankings, delete all rankings)
+  - Correspondent (read/write own rankings, read other rankings, delete all rankings)
