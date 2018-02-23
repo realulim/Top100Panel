@@ -49,7 +49,7 @@ public final class RankingGrid extends CustomComponent {
         grid.setSizeFull();
 
         grid.addColumn(RankedCourse::getPos).setId("pos").setCaption("").setExpandRatio(0);
-        grid.addColumn(course -> "").setId("bucket").setCaption("").setStyleGenerator(bucketStyleGenerator).setExpandRatio(0);
+        grid.addColumn(course -> "").setId("bucket").setCaption("" + rankings.getRankedCourses().size()).setStyleGenerator(bucketStyleGenerator).setExpandRatio(0);
         grid.addColumn(RankedCourse::getName).setId("course").setEditorComponent(nameField, RankedCourse::setName).setCaption("Course").setExpandRatio(1);
         grid.addColumn(RankedCourse::getLastPlayed, new LocalDateRenderer("yyyy-MM-dd")).setId("played").setEditorBinding(lastPlayed).setCaption("Played").setExpandRatio(0);
         grid.addColumn(RankedCourse::getComments).setId("comments").setEditorComponent(commentsField, RankedCourse::setComments).setCaption("Comments").setExpandRatio(3);
