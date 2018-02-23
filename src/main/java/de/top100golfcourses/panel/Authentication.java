@@ -52,7 +52,7 @@ public class Authentication {
             Logger.getAnonymousLogger().severe("Cannot find UserDatabase: " + ex.toString());
             VaadinSession.getCurrent().setAttribute("user", "Fazil Ongudar");
             VaadinSession.getCurrent().setAttribute(Role.class, Role.Panelist);
-            return true; // set to true for local testing
+            return true; // set to true for local testing, false in production
         }
     }
 
