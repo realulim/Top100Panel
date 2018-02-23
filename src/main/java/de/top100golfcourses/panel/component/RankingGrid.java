@@ -117,6 +117,7 @@ public final class RankingGrid extends CustomComponent {
         course.setPos(pos);
         this.rankings.insertRankedCourseAt(pos - 1, course);
         grid.setItems(this.rankings.getRankedCourses());
+        grid.getColumn("bucket").setCaption("" + this.rankings.getRankedCourses().size());
     }
 
     private void deleteRow() {
@@ -125,6 +126,7 @@ public final class RankingGrid extends CustomComponent {
             int pos = selectedRows.iterator().next().getPos();
             this.rankings.deleteRankedCourseAt(pos - 1);
             grid.setItems(this.rankings.getRankedCourses());
+            grid.getColumn("bucket").setCaption("" + this.rankings.getRankedCourses().size());
         }
     }
 
