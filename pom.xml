@@ -89,7 +89,13 @@
 	    <groupId>com.github.jnash67</groupId>
 	    <artifactId>tableexport-for-vaadin</artifactId>
 	    <version>f6e247d9de</version>
-	</dependency>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.github.jnash67.tableexport-for-vaadin</groupId>
+                    <artifactId>tableexport-for-vaadin-demo</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
