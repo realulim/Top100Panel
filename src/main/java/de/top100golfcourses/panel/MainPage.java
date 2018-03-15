@@ -6,7 +6,6 @@ import java.util.logging.Logger;
 import com.vaadin.data.HasValue.ValueChangeEvent;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.navigator.View;
-import com.vaadin.server.Sizeable;
 import com.vaadin.server.VaadinSession;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
@@ -17,6 +16,7 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window.CloseEvent;
 import com.vaadin.ui.themes.ValoTheme;
+import de.top100golfcourses.panel.component.ChatPanel;
 
 import org.vaadin.chatbox.SharedChat;
 
@@ -29,8 +29,6 @@ import de.top100golfcourses.panel.da.Persistence;
 import de.top100golfcourses.panel.da.RankingsExporter;
 import de.top100golfcourses.panel.entity.Rankings;
 import de.top100golfcourses.panel.entity.Role;
-import org.vaadin.chatbox.ChatBox;
-import org.vaadin.chatbox.client.ChatUser;
 
 public final class MainPage extends VerticalLayout implements View {
 
@@ -53,29 +51,23 @@ public final class MainPage extends VerticalLayout implements View {
     public static final String NAME = "Main";
 
     // A static variable so that everybody gets the same instance.
-    private static final SharedChat chat = new SharedChat();
+    private static final SharedChat sharedChat = new SharedChat();
 
     public MainPage() {
         user = VaadinSession.getCurrent().getAttribute("user").toString();
         Role role = VaadinSession.getCurrent().getAttribute(Role.class);
         selectableRankings = storage.findAllSortByUser(user);
 
+        // Header
         header.setWidth("100%");
         Label title = new Label("Top 100 Golf Courses - German Panel");
         title.addStyleName(ValoTheme.LABEL_H1);
         header.addComponents(title);
 
-        ChatBox chatBox = new ChatBox(chat);
-        ChatUser chatUser = ChatUser.newUser(user);
-        chatBox.setUser(chatUser);
-        chatBox.setShowSendButton(false);
-        chatBox.setHeight(13, Sizeable.Unit.EX);
-        chatBox.setWidth("90%");
-        chatBox.addStyleName("chatbox");
-        header.addComponent(chatBox);
-        header.setExpandRatio(chatBox, 1.0f); // Expand
+        ChatPanel chatPanel = new ChatPanel(sharedChat, user);
+        header.addComponent(chatPanel);
+        header.setExpandRatio(chatPanel, 1.0f); // Expand
 
-        // Header
         UserMenu logoutComponent = new UserMenu(this);
         header.addComponent(logoutComponent);
 
