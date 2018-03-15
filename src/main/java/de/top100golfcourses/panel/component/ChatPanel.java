@@ -15,7 +15,6 @@ public final class ChatPanel extends CustomComponent {
         chatBox.setShowSendButton(false);
         chatBox.setHeight(13, Sizeable.Unit.EX);
         chatBox.setWidth("90%");
-        chatBox.addStyleName("chatbox");
 
         // The composition root MUST be set
         setCompositionRoot(chatBox);
