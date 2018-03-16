@@ -21,7 +21,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <!-- If there are no local customizations, this can also be "fetch" or "cdn" -->
-        <vaadin.widgetset.mode>cdn</vaadin.widgetset.mode>
+        <vaadin.widgetset.mode>local</vaadin.widgetset.mode>
     </properties>
 
     <repositories>
@@ -85,9 +85,15 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>org.vaadin.addons</groupId>
-            <artifactId>chatbox</artifactId>
-            <version>0.7.4</version>
+	    <groupId>com.github.realulim</groupId>
+	    <artifactId>vaadin-chatbox</artifactId>
+	    <version>d199923b94</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.github.realulim.vaadin-chatbox</groupId>
+                    <artifactId>chatbox-demo</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
