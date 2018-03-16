@@ -1,8 +1,5 @@
 package de.top100golfcourses.panel.component;
 
-import java.util.List;
-import java.util.logging.Logger;
-
 import com.vaadin.server.Sizeable;
 import com.vaadin.ui.CustomComponent;
 

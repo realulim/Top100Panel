@@ -16,12 +16,12 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window.CloseEvent;
 import com.vaadin.ui.themes.ValoTheme;
-import de.top100golfcourses.panel.component.PersistentChatBox;
 
 import org.vaadin.chatbox.SharedChat;
 
 import de.top100golfcourses.panel.component.ConfirmDeleteDialog;
 import de.top100golfcourses.panel.component.CreateRankingDialog;
+import de.top100golfcourses.panel.component.PersistentChatBox;
 import de.top100golfcourses.panel.component.RankingGrid;
 import de.top100golfcourses.panel.component.UserMenu;
 import de.top100golfcourses.panel.da.NitritePersistence;
