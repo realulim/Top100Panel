@@ -6,7 +6,7 @@ import de.top100golfcourses.panel.entity.Rankings;
 
 public interface Persistence {
 
-    public static String DB = "top100.db";
+    static String DB = "top100.db";
 
     void save(Rankings rankings);
 

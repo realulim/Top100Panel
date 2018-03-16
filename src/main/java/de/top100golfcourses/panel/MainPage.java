@@ -16,7 +16,7 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window.CloseEvent;
 import com.vaadin.ui.themes.ValoTheme;
-import de.top100golfcourses.panel.component.ChatPanel;
+import de.top100golfcourses.panel.component.PersistentChatBox;
 
 import org.vaadin.chatbox.SharedChat;
 
@@ -64,7 +64,7 @@ public final class MainPage extends VerticalLayout implements View {
         title.addStyleName(ValoTheme.LABEL_H1);
         header.addComponents(title);
 
-        ChatPanel chatPanel = new ChatPanel(sharedChat, user);
+        PersistentChatBox chatPanel = new PersistentChatBox(sharedChat, user);
         header.addComponent(chatPanel);
         header.setExpandRatio(chatPanel, 1.0f); // Expand
 
