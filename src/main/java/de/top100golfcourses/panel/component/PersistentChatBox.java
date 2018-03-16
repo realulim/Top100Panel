@@ -24,7 +24,7 @@ public final class PersistentChatBox extends CustomComponent {
                chatLog.append(new ChatEntry(line));
            }
         };
-        ChatUser chatUser = ChatUser.newUser(user, "blackuser");
+        ChatUser chatUser = ChatUser.newUser(user, "blueuser", "blackuser");
         chatBox.setUser(chatUser);
         chatBox.setShowSendButton(false);
         chatBox.setHeight(13, Sizeable.Unit.EX);
@@ -33,7 +33,7 @@ public final class PersistentChatBox extends CustomComponent {
         if (sharedChat.getLinesStartingFrom(0).isEmpty()) {
             // read persistent chatlog from disk
             for (ChatEntry entry : chatLog.readLog()) {
-                sharedChat.addLine(new ChatLine(entry.getText(), ChatUser.newUser(entry.getUser(), "blackuser")));
+                sharedChat.addLine(new ChatLine(entry.getText(), ChatUser.newUser(entry.getUser(), "blueuser", "blackuser")));
             }
         }
 

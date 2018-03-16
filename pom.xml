@@ -87,7 +87,7 @@
         <dependency>
 	    <groupId>com.github.realulim</groupId>
 	    <artifactId>vaadin-chatbox</artifactId>
-	    <version>d199923b94</version>
+	    <version>f6ed4a889d</version>
             <exclusions>
                 <exclusion>
                     <groupId>com.github.realulim.vaadin-chatbox</groupId>

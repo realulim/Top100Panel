@@ -15125,3 +15125,8 @@ div.v-layout.v-horizontal.v-widget {
 	font-weight: bold;
 	color: black;
 }
+
+.mytheme .blueuser {
+	font-weight: normal;
+	color: blue;
+}
