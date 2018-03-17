@@ -79,9 +79,13 @@ $v-background-color: hsl(65, 30%, 95%);
         background-image: -webkit-linear-gradient(top, gold 0%, lightgoldenrodyellow 100%);
         background-image: linear-gradient(to bottom, gold 0%, lightgoldenrodyellow 100%);
     }
-    .ChatBox {
+    .ChatBoxSmall {
         margin-left: 20px;
         margin-bottom: -20px;
+    }
+    .ChatBoxLarge {
+        margin-left: 0px;
+        margin-bottom: 20px;
     }
     .ChatBox .FrozenLines {
         padding-left: 5px;
@@ -101,6 +105,12 @@ $v-background-color: hsl(65, 30%, 95%);
     }
     .blueuser {
         font-weight: normal;
-        color: blue;
+        color: royalblue;
+    }
+    a.blueuser:hover {
+        color: #FF00FF;
+    }
+    .SpaceBelowButtons {
+        margin-bottom: 40px;
     }
 }

@@ -15101,9 +15101,14 @@ div.v-layout.v-horizontal.v-widget {
 	background-image: linear, to bottom, gold 0%, lightgoldenrodyellow 100%;
 }
 
-.mytheme .ChatBox {
+.mytheme .ChatBoxSmall {
 	margin-left: 20px;
 	margin-bottom: -20px;
+}
+
+.mytheme .ChatBoxLarge {
+	margin-left: 0px;
+	margin-bottom: 20px;
 }
 
 .mytheme .ChatBox .FrozenLines {
@@ -15128,5 +15133,13 @@ div.v-layout.v-horizontal.v-widget {
 
 .mytheme .blueuser {
 	font-weight: normal;
-	color: blue;
+	color: royalblue;
+}
+
+.mytheme a.blueuser:hover {
+	color: #FF00FF;
+}
+
+.mytheme .SpaceBelowButtons {
+	margin-bottom: 40px;
 }

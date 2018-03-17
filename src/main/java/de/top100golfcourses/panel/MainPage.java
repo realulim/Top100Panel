@@ -46,39 +46,58 @@ public final class MainPage extends VerticalLayout implements View {
     private Button createRankingButton = null;
     private Button deleteRankingButton = null;
     private Button exportRankingButton = null;
+
     private final String user;
+    private final Role role;
 
     public static final String NAME = "Main";
 
     // A static variable so that everybody gets the same instance.
     private static final SharedChat sharedChat = new SharedChat();
+    private final PersistentChatBox chatBox;
 
     public MainPage() {
         user = VaadinSession.getCurrent().getAttribute("user").toString();
-        Role role = VaadinSession.getCurrent().getAttribute(Role.class);
+        role = VaadinSession.getCurrent().getAttribute(Role.class);
         selectableRankings = storage.findAllSortByUser(user);
+        chatBox = new PersistentChatBox(sharedChat, user);
+        chatBox.addChangeSizeListener(() -> {
+            initComponents();
+        });
+
+        initComponents();
+    }
+
+    private void initComponents() {
+        header.removeAllComponents();
+        body.removeAllComponents();
+        footer.removeAllComponents();
 
         // Header
         header.setWidth("100%");
         Label title = new Label("Top 100 Golf Courses - German Panel");
         title.addStyleName(ValoTheme.LABEL_H1);
         header.addComponents(title);
-
-        PersistentChatBox chatPanel = new PersistentChatBox(sharedChat, user);
-        header.addComponent(chatPanel);
-        header.setExpandRatio(chatPanel, 1.0f); // Expand
-
+        if (chatBox.isSmall()) {
+            header.addComponent(chatBox);
+            header.setExpandRatio(chatBox, 1.0f); // Expand
+        }
         UserMenu logoutComponent = new UserMenu(this);
         header.addComponent(logoutComponent);
 
         // Body
         body.setSizeFull();
+        if (!chatBox.isSmall()) {
+            body.addComponent(chatBox);
+            header.setExpandRatio(title, 1.0f); // Expand
+        }
         installComboBox();
+
         body.addComponent(rankingGrid);
 
         // Footer
         if (role == Role.Correspondent || role == Role.Panelist) {
-            installCreateRankingButton();
+            installCreateRankingButton(!chatBox.isSmall());
         }
         installExportRankingButton();
         if (role == Role.Correspondent) {
@@ -122,7 +141,7 @@ public final class MainPage extends VerticalLayout implements View {
         }
     }
 
-    private void installCreateRankingButton() {
+    private void installCreateRankingButton(boolean spaceBelowNeeded) {
         createRankingButton = new Button("Create new Ranking");
         createRankingButton.addClickListener((ClickEvent event) -> {
             CreateRankingDialog dialog = new CreateRankingDialog(selectableRankings, comboBox);
@@ -130,6 +149,7 @@ public final class MainPage extends VerticalLayout implements View {
         });
         createRankingButton.setIcon(VaadinIcons.PLUS_CIRCLE_O);
         createRankingButton.addStyleName(ValoTheme.BUTTON_PRIMARY);
+        if (spaceBelowNeeded) createRankingButton.addStyleName("SpaceBelowButtons");
         footer.addComponent(createRankingButton);
     }
 
