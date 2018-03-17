@@ -18,10 +18,6 @@ public final class PersistentChatBox extends CustomComponent {
 
     public PersistentChatBox(SharedChat sharedChat, String user) {
 
-        sharedChat.addListener((ChatLine line) -> {
-            chatLog.append(new ChatEntry(line));
-        });
-
         ChatBox chatBox = new ChatBox(sharedChat);
         ChatUser chatUser = ChatUser.newUser(user, "blueuser", "blackuser");
         chatBox.setUser(chatUser);
@@ -34,6 +30,9 @@ public final class PersistentChatBox extends CustomComponent {
             for (ChatEntry entry : chatLog.readLog()) {
                 sharedChat.addLine(new ChatLine(entry.getTimestamp(), ChatUser.newUser(entry.getUser(), "blueuser", "blackuser"), entry.getText()));
             }
+            sharedChat.addListener((ChatLine line) -> {
+                chatLog.append(new ChatEntry(line));
+            });
         }
 
         // The composition root MUST be set
