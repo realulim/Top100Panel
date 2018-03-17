@@ -17,13 +17,12 @@ public final class PersistentChatBox extends CustomComponent {
     private final ChatLog chatLog = new NitriteChatLog();
 
     public PersistentChatBox(SharedChat sharedChat, String user) {
-        ChatBox chatBox = new ChatBox(sharedChat) {
-           @Override
-           public void lineAdded(ChatLine line) {
-               super.lineAdded(line);
-               chatLog.append(new ChatEntry(line));
-           }
-        };
+
+        sharedChat.addListener((ChatLine line) -> {
+            chatLog.append(new ChatEntry(line));
+        });
+
+        ChatBox chatBox = new ChatBox(sharedChat);
         ChatUser chatUser = ChatUser.newUser(user, "blueuser", "blackuser");
         chatBox.setUser(chatUser);
         chatBox.setShowSendButton(false);
