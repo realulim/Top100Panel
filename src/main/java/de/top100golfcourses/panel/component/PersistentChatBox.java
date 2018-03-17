@@ -28,7 +28,7 @@ public final class PersistentChatBox extends CustomComponent {
         chatBox.setUser(chatUser);
         chatBox.setShowSendButton(false);
         chatBox.setHeight(13, Sizeable.Unit.EX);
-        chatBox.setWidth("90%");
+        chatBox.setWidth("95%");
 
         if (sharedChat.getLinesStartingFrom(0).isEmpty()) {
             // read persistent chatlog from disk
