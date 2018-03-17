@@ -1,5 +1,6 @@
 package de.top100golfcourses.panel.da;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -12,6 +13,8 @@ import org.dizitart.no2.objects.ObjectRepository;
 import de.top100golfcourses.panel.entity.ChatEntry;
 
 public class NitriteChatLog implements ChatLog {
+
+    private final int MAX_SCROLLBACK_BUFFER = 1000;
 
     @Override
     public void append(ChatEntry chatEntry) {
@@ -26,7 +29,8 @@ public class NitriteChatLog implements ChatLog {
     public List<ChatEntry> readLog() {
         try (Nitrite db = Nitrite.builder().compressed().filePath(ChatLog.DB).openOrCreate()) {
             ObjectRepository<ChatEntry> repo = db.getRepository(ChatEntry.class);
-            List<ChatEntry> result = repo.find(FindOptions.sort("id", SortOrder.Ascending)).toList();
+            List<ChatEntry> result = repo.find(FindOptions.sort("id", SortOrder.Descending).thenLimit(0, MAX_SCROLLBACK_BUFFER)).toList();
+            Collections.reverse(result);
             Logger.getAnonymousLogger().info("Read: " + result.size());
             return result;
         }
