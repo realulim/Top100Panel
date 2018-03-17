@@ -33,7 +33,7 @@ public final class PersistentChatBox extends CustomComponent {
         if (sharedChat.getLinesStartingFrom(0).isEmpty()) {
             // read persistent chatlog from disk
             for (ChatEntry entry : chatLog.readLog()) {
-                sharedChat.addLine(new ChatLine(entry.getText(), ChatUser.newUser(entry.getUser(), "blueuser", "blackuser")));
+                sharedChat.addLine(new ChatLine(entry.getTimestamp(), ChatUser.newUser(entry.getUser(), "blueuser", "blackuser"), entry.getText()));
             }
         }
 

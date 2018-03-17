@@ -2,7 +2,9 @@ package de.top100golfcourses.panel.entity;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Objects;
 
 import org.dizitart.no2.objects.Id;
@@ -14,17 +16,16 @@ public class ChatEntry implements Serializable {
     @Id
     private String id;
 
-    private String ts;
+    private String timestamp;
     private String user;
     private String text;
 
-    private transient final DateTimeFormatter dtfPersist = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:MM:ss.SSS");
-    private transient final DateTimeFormatter dtfDisplay = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:MM:ss");
+    private transient final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
 
     public ChatEntry() { }
 
     public ChatEntry(ChatLine line) {
-        this.ts = dtfPersist.format(LocalDateTime.now());
+        this.timestamp = dtf.format(line.getTimestamp().toInstant().atOffset(ZoneOffset.UTC).toLocalDateTime());
         this.user = line.getUser().getName();
         this.text = line.getText();
         setId();
@@ -35,14 +36,14 @@ public class ChatEntry implements Serializable {
     }
 
     private void setId() {
-        this.id = "[" + ts + "] " + user;
+        this.id = timestamp + ":" + user;
     }
 
-    public String getTs() {
-        if (ts == null) return null;
+    public Date getTimestamp() {
+        if (timestamp == null) return null;
         else {
-            LocalDateTime parsed = dtfPersist.parse(ts, LocalDateTime::from);
-            return dtfDisplay.format(parsed);
+            LocalDateTime parsed = LocalDateTime.parse(timestamp, dtf);
+            return Date.from(parsed.toInstant(ZoneOffset.UTC));
         } 
     }
 
@@ -58,7 +59,7 @@ public class ChatEntry implements Serializable {
     public int hashCode() {
         int hash = 7;
         hash = 37 * hash + Objects.hashCode(this.id);
-        hash = 37 * hash + Objects.hashCode(this.ts);
+        hash = 37 * hash + Objects.hashCode(this.timestamp);
         hash = 37 * hash + Objects.hashCode(this.user);
         hash = 37 * hash + Objects.hashCode(this.text);
         return hash;
@@ -85,7 +86,7 @@ public class ChatEntry implements Serializable {
         if (!Objects.equals(this.text, other.text)) {
             return false;
         }
-        return Objects.equals(this.ts, other.ts);
+        return Objects.equals(this.timestamp, other.timestamp);
     }
 
 }
