@@ -89,4 +89,9 @@ public class ChatEntry implements Serializable {
         return Objects.equals(this.timestamp, other.timestamp);
     }
 
+    @Override
+    public String toString() {
+        return "ChatEntry{" + "id=" + id + ", timestamp=" + timestamp + ", user=" + user + ", text=" + text + '}';
+    }
+
 }

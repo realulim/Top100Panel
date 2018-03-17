@@ -8,6 +8,7 @@ import org.dizitart.no2.FindOptions;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.SortOrder;
 import org.dizitart.no2.WriteResult;
+import org.dizitart.no2.exceptions.NitriteException;
 import org.dizitart.no2.objects.ObjectRepository;
 
 import de.top100golfcourses.panel.entity.ChatEntry;
@@ -23,6 +24,10 @@ public class NitriteChatLog implements ChatLog {
             WriteResult result = repo.insert(chatEntry);
             Logger.getAnonymousLogger().info("Inserted: " + result.getAffectedCount() + " (" + chatEntry.getId() + ")");
         }
+        catch (NitriteException ex) {
+            Logger.getAnonymousLogger().severe(chatEntry.toString());
+            throw ex;
+        }
     }
 
     @Override
@@ -33,6 +38,10 @@ public class NitriteChatLog implements ChatLog {
             Collections.reverse(result);
             Logger.getAnonymousLogger().info("Read: " + result.size());
             return result;
+        }
+        catch (NitriteException ex) {
+            Logger.getAnonymousLogger().severe("Cannot read " + ChatLog.DB);
+            throw ex;
         }
     }
 
