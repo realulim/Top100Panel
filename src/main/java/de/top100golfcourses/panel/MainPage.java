@@ -1,6 +1,7 @@
 package de.top100golfcourses.panel;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.logging.Logger;
 
 import com.vaadin.data.HasValue.ValueChangeEvent;
@@ -30,7 +31,6 @@ import de.top100golfcourses.panel.da.Persistence;
 import de.top100golfcourses.panel.da.RankingsExporter;
 import de.top100golfcourses.panel.entity.Rankings;
 import de.top100golfcourses.panel.entity.Role;
-import java.util.Optional;
 
 public final class MainPage extends VerticalLayout implements View {
 
@@ -168,7 +168,11 @@ public final class MainPage extends VerticalLayout implements View {
         renameRankingButton = new Button("Rename Ranking");
         renameRankingButton.addClickListener((ClickEvent) -> {
             Rankings rankingsToRename = rankingGrid.getRankings();
-            RenameRankingDialog dialog = new RenameRankingDialog(selectableRankings, rankingsToRename);
+            RenameRankingDialog dialog = new RenameRankingDialog(storage, selectableRankings, rankingsToRename);
+            dialog.addCloseListener((CloseEvent event) -> {
+                comboBox.setItems(selectableRankings);
+                comboBox.setValue(rankingsToRename);
+            });
             UI.getCurrent().addWindow(dialog);
         });
         renameRankingButton.setIcon(VaadinIcons.PENCIL);

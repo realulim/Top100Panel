@@ -75,10 +75,26 @@ public class NitritePersistence implements Persistence {
     }
 
     @Override
+    public void rename(Rankings rankings, String newName) {
+        try (Nitrite db = Nitrite.builder().compressed().filePath(Persistence.DB).openOrCreate()) {
+            String oldName = rankings.getName();
+            rankings.setName(newName);
+            ObjectRepository<Rankings> repo = db.getRepository(Rankings.class);
+            WriteResult result = repo.insert(rankings);
+            Logger.getAnonymousLogger().info("Inserted: " + result.getAffectedCount() + " (" + rankings.getId() + ")");
+            rankings.setName(oldName);
+            result = repo.remove(rankings);
+            Logger.getAnonymousLogger().info("Deleted: " + result.getAffectedCount() + " (" + rankings.getId() + ")");
+            rankings.setName(newName);
+        }
+    }
+
+    @Override
     public void delete(Rankings rankings) {
         try (Nitrite db = Nitrite.builder().compressed().filePath(Persistence.DB).openOrCreate()) {
             ObjectRepository<Rankings> repo = db.getRepository(Rankings.class);
-            repo.remove(rankings);
+            WriteResult result = repo.remove(rankings);
+            Logger.getAnonymousLogger().info("Deleted: " + result.getAffectedCount() + " (" + rankings.getId() + ")");
         }
     }
 

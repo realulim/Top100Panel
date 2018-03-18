@@ -16,6 +16,8 @@ public interface Persistence {
 
     List<Rankings> findAllSortByUser(String user);
 
+    void rename(Rankings rankings, String newName);
+
     void delete(Rankings rankings);
 
 }
