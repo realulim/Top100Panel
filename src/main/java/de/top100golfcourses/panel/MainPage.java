@@ -23,12 +23,14 @@ import de.top100golfcourses.panel.component.ConfirmDeleteDialog;
 import de.top100golfcourses.panel.component.CreateRankingDialog;
 import de.top100golfcourses.panel.component.PersistentChatBox;
 import de.top100golfcourses.panel.component.RankingGrid;
+import de.top100golfcourses.panel.component.RenameRankingDialog;
 import de.top100golfcourses.panel.component.UserMenu;
 import de.top100golfcourses.panel.da.NitritePersistence;
 import de.top100golfcourses.panel.da.Persistence;
 import de.top100golfcourses.panel.da.RankingsExporter;
 import de.top100golfcourses.panel.entity.Rankings;
 import de.top100golfcourses.panel.entity.Role;
+import java.util.Optional;
 
 public final class MainPage extends VerticalLayout implements View {
 
@@ -44,6 +46,7 @@ public final class MainPage extends VerticalLayout implements View {
     private List<Rankings> selectableRankings = null;
     private Button saveRankingButton = null;
     private Button createRankingButton = null;
+    private Button renameRankingButton = null;
     private Button deleteRankingButton = null;
     private Button exportRankingButton = null;
 
@@ -62,7 +65,13 @@ public final class MainPage extends VerticalLayout implements View {
         selectableRankings = storage.findAllSortByUser(user);
         chatBox = new PersistentChatBox(sharedChat, user);
         chatBox.addChangeSizeListener(() -> {
+            Optional<Rankings> selectedItem = comboBox.getSelectedItem();
+            Rankings selectedRankings = null;
+            if (selectedItem.isPresent()) {
+                selectedRankings = selectedItem.get();
+            }
             initComponents();
+            if (selectedRankings != null) comboBox.setSelectedItem(selectedRankings);
         });
 
         initComponents();
@@ -101,6 +110,7 @@ public final class MainPage extends VerticalLayout implements View {
         }
         installExportRankingButton();
         if (role == Role.Correspondent) {
+            installRenameRankingButton();
             installDeleteRankingButton();
         }
 
@@ -123,8 +133,9 @@ public final class MainPage extends VerticalLayout implements View {
             else if (saveRankingButton != null) {
                 footer.removeComponent(saveRankingButton);
             }
-            if (exportRankingButton != null && !exportRankingButton.isVisible()) exportRankingButton.setVisible(true);
+            if (renameRankingButton != null && !renameRankingButton.isVisible()) renameRankingButton.setVisible(true);
             if (deleteRankingButton != null && !deleteRankingButton.isVisible()) deleteRankingButton.setVisible(true);
+            if (exportRankingButton != null && !exportRankingButton.isVisible()) exportRankingButton.setVisible(true);
         });
         body.addComponent(comboBox);
     }
@@ -151,6 +162,19 @@ public final class MainPage extends VerticalLayout implements View {
         createRankingButton.addStyleName(ValoTheme.BUTTON_PRIMARY);
         if (spaceBelowNeeded) createRankingButton.addStyleName("SpaceBelowButtons");
         footer.addComponent(createRankingButton);
+    }
+
+    private void installRenameRankingButton() {
+        renameRankingButton = new Button("Rename Ranking");
+        renameRankingButton.addClickListener((ClickEvent) -> {
+            Rankings rankingsToRename = rankingGrid.getRankings();
+            RenameRankingDialog dialog = new RenameRankingDialog(selectableRankings, rankingsToRename);
+            UI.getCurrent().addWindow(dialog);
+        });
+        renameRankingButton.setIcon(VaadinIcons.PENCIL);
+        renameRankingButton.addStyleName(ValoTheme.BUTTON_PRIMARY);
+        renameRankingButton.setVisible(false);
+        footer.addComponent(renameRankingButton);
     }
 
     private void installDeleteRankingButton() {
