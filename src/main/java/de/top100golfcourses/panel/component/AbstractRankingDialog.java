@@ -67,7 +67,7 @@ public abstract class AbstractRankingDialog extends Window {
         setContent(content);
     }
 
-    private boolean checkForDuplicate(List<Rankings> rankings, String user, String name) {
+    protected boolean checkForDuplicate(List<Rankings> rankings, String user, String name) {
         for (Rankings ranking : rankings) {
             if (ranking.getUser().equals(user) && ranking.getName().equals(name)) {
                 return true;
