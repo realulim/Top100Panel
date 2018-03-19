@@ -55,6 +55,7 @@ public final class RankingGrid extends CustomComponent {
         grid.addColumn(RankedCourse::getComments).setId("comments").setEditorComponent(commentsField, RankedCourse::setComments).setCaption("Comments").setExpandRatio(3);
         grid.setSelectionMode(SelectionMode.SINGLE);
         grid.getEditor().setEnabled(this.editable);
+        grid.getEditor().setSaveCaption("Ok");
         grid.getEditor().addSaveListener((EditorSaveEvent<RankedCourse> event) -> {
             grid.setItems(courses);
         });
