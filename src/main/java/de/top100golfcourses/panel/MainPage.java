@@ -31,6 +31,7 @@ import de.top100golfcourses.panel.da.Persistence;
 import de.top100golfcourses.panel.da.RankingsExporter;
 import de.top100golfcourses.panel.entity.Rankings;
 import de.top100golfcourses.panel.entity.Role;
+import de.top100golfcourses.panel.entity.TopList;
 
 public final class MainPage extends VerticalLayout implements View {
 
@@ -91,7 +92,7 @@ public final class MainPage extends VerticalLayout implements View {
             header.addComponent(chatBox);
             header.setExpandRatio(chatBox, 1.0f); // Expand
         }
-        UserMenu logoutComponent = new UserMenu(this);
+        UserMenu logoutComponent = new UserMenu(rankingGrid, selectableRankings);
         header.addComponent(logoutComponent);
 
         // Body
@@ -105,11 +106,11 @@ public final class MainPage extends VerticalLayout implements View {
         body.addComponent(rankingGrid);
 
         // Footer
-        if (role == Role.Correspondent || role == Role.Panelist) {
+        if ((role == Role.Correspondent || role == Role.Panelist) && !user.equals(TopList.USERNAME)) {
             installCreateRankingButton(!chatBox.isSmall());
         }
         installExportRankingButton();
-        if (role == Role.Correspondent) {
+        if (role == Role.Correspondent && !user.equals(TopList.USERNAME)) {
             installRenameRankingButton();
             installDeleteRankingButton();
         }
@@ -123,7 +124,7 @@ public final class MainPage extends VerticalLayout implements View {
         comboBox.setWidth("350px");
         comboBox.setEmptySelectionAllowed(false);
         comboBox.setItems(selectableRankings);
-        comboBox.setItemCaptionGenerator(Rankings::getId);
+        comboBox.setItemCaptionGenerator(Rankings::getId); // the function to produce the strings shown in the combo box for each item
         comboBox.addValueChangeListener((ValueChangeEvent<Rankings> event) -> {
             rankingGrid.setRankings(event.getValue());
             if (rankingGrid.isEditable()) {

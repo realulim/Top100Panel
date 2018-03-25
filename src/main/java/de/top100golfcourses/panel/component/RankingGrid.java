@@ -26,6 +26,9 @@ import de.top100golfcourses.panel.entity.Rankings;
 
 public final class RankingGrid extends CustomComponent {
 
+    public static final String BUCKET_COL_ID = "bucket";
+    public static final String PLAYED_COL_ID = "played";
+
     private Rankings rankings;
     private boolean editable = false;
     private Grid<RankedCourse> grid;
@@ -49,22 +52,35 @@ public final class RankingGrid extends CustomComponent {
         grid.setSizeFull();
 
         grid.addColumn(RankedCourse::getPos).setId("pos").setCaption("").setExpandRatio(0);
-        grid.addColumn(course -> "").setId("bucket").setCaption("" + rankings.getRankedCourses().size()).setStyleGenerator(bucketStyleGenerator).setExpandRatio(0);
+        grid.addColumn(course -> "").setId(BUCKET_COL_ID).setCaption("" + rankings.getRankedCourses().size()).setStyleGenerator(bucketStyleGenerator).setExpandRatio(0);
         grid.addColumn(RankedCourse::getName).setId("course").setEditorComponent(nameField, RankedCourse::setName).setCaption("Course").setExpandRatio(1);
-        grid.addColumn(RankedCourse::getLastPlayed, new LocalDateRenderer("yyyy-MM-dd")).setId("played").setEditorBinding(lastPlayed).setCaption("Played").setExpandRatio(0);
+        grid.addColumn(RankedCourse::getLastPlayed, new LocalDateRenderer("yyyy-MM-dd")).setId(PLAYED_COL_ID).setEditorBinding(lastPlayed).setCaption("Played").setExpandRatio(0);
         grid.addColumn(RankedCourse::getComments).setId("comments").setEditorComponent(commentsField, RankedCourse::setComments).setCaption("Comments").setExpandRatio(3);
-        grid.setSelectionMode(SelectionMode.SINGLE);
-        grid.getEditor().setEnabled(this.editable);
-        grid.getEditor().setSaveCaption("Ok");
-        grid.getEditor().addSaveListener((EditorSaveEvent<RankedCourse> event) -> {
-            grid.setItems(courses);
-        });
+
+        if (this.editable) {
+            grid.setSelectionMode(SelectionMode.SINGLE);
+            grid.getEditor().setEnabled(true);
+            grid.getEditor().setSaveCaption("Ok");
+            grid.getEditor().addSaveListener((EditorSaveEvent<RankedCourse> event) -> {
+                grid.setItems(courses);
+            });
+            installContextMenu();
+            DnDGridRowEnabler.START(this.grid, this.rankings);
+        }
+        else {
+            grid.getEditor().setEnabled(false);
+            grid.setSelectionMode(SelectionMode.NONE);
+        }
+
         grid.setHeightByRows(15);
         grid.setItems(courses);
 
-        DnDGridRowEnabler.START(this.grid, this.rankings);
+        // The composition root MUST be set
+        setCompositionRoot(grid);
+    }
 
-        final ContextMenu contextMenu = new ContextMenu(grid, this.editable);
+    private void installContextMenu() {
+        final ContextMenu contextMenu = new ContextMenu(grid, true);
         contextMenu.addItem("Add Row", VaadinIcons.PLUS_CIRCLE_O, (MenuItem selectedItem) -> {
             addRow();
         });
@@ -87,9 +103,6 @@ public final class RankingGrid extends CustomComponent {
         bucket.addItem(" DQ", new ThemeResource("dq.png"), (MenuItem selectedItem) -> {
             changeBucket(BucketColor.DQ);
         }).setStyleName("contextmenupadding");
-
-        // The composition root MUST be set
-        setCompositionRoot(grid);
     }
 
     public Rankings getRankings() {
