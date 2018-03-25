@@ -3,7 +3,7 @@
 Top100Panel
 ===========
 
-Experimental webapp to manage a regional panel of Top100GolfCourses.com like so:
+Webapp to manage a regional panel of Top100GolfCourses.com like so:
 
 https://top100golfcourses.de/panel
 
