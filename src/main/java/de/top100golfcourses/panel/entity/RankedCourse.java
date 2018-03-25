@@ -7,6 +7,15 @@ import java.util.Objects;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+/**
+ * A course that has been evaluated against other courses.
+ * 
+ * As a result of ranking it can end up in a bucket or occupy a position within 
+ * a list or both.
+ * 
+ * Additional non-ranking information can also be available, such as the date the
+ * course was last played and a free text field for comments.
+ */
 public class RankedCourse implements Serializable {
 
     private int pos;

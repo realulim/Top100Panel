@@ -7,6 +7,9 @@ import java.util.Objects;
 
 import org.dizitart.no2.objects.Id;
 
+/**
+ * A list of ranked courses by one user for a particular area. Example: Joe Miller's Top 50 Alabama
+ */
 public class Rankings implements Serializable {
 
     @Id
