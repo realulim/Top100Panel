@@ -159,8 +159,12 @@ public final class MainPage extends VerticalLayout implements View {
 
     private void installCreateRankingButton(boolean spaceBelowNeeded) {
         createRankingButton = new Button("Create new Ranking");
-        createRankingButton.addClickListener((ClickEvent event) -> {
-            CreateRankingDialog dialog = new CreateRankingDialog(selectableRankings, comboBox);
+        createRankingButton.addClickListener((ClickEvent createRankingButtonClicked) -> {
+            CreateRankingDialog dialog = new CreateRankingDialog(selectableRankings);
+            dialog.getOkButton().addClickListener((ClickEvent okButtonClicked) -> {
+                this.comboBox.setItems(selectableRankings);
+                this.comboBox.setSelectedItem(dialog.getNewRankings());
+            });
             UI.getCurrent().addWindow(dialog);
         });
         createRankingButton.setIcon(VaadinIcons.PLUS_CIRCLE_O);

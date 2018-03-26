@@ -19,6 +19,7 @@ public abstract class AbstractRankingDialog extends Window {
     protected final List<Rankings> existingRankings;
     private final String caption;
     private final String defaultName;
+    private final Button okButton;
 
     protected abstract void processRankingName(String user, String selectedName);
 
@@ -27,6 +28,7 @@ public abstract class AbstractRankingDialog extends Window {
         this.existingRankings = existingRankings;
         this.caption = caption;
         this.defaultName = defaultName;
+        this.okButton = new Button("OK");
         init();
     }
     
@@ -45,7 +47,6 @@ public abstract class AbstractRankingDialog extends Window {
         textField.setValue(defaultName);
         textField.setWidth("300px");
 
-        Button okButton = new Button("OK");
         okButton.addClickListener((ClickEvent event) -> {
             String user = VaadinSession.getCurrent().getAttribute("user").toString();
             String name = textField.getValue();
@@ -65,6 +66,10 @@ public abstract class AbstractRankingDialog extends Window {
 
         content.addComponents(textField, okButton);
         setContent(content);
+    }
+
+    public Button getOkButton() {
+        return okButton;
     }
 
     protected boolean checkForDuplicate(List<Rankings> rankings, String user, String name) {
