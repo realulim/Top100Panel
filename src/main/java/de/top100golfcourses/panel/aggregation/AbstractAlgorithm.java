@@ -32,6 +32,7 @@ public abstract class AbstractAlgorithm implements Algorithm {
 
     protected void aggregateCourse(List<AggregatedCourse> aggregatedCourses, RankedCourse courseToAggregate) {
         String courseName = courseToAggregate.getName();
+        if (courseName == null) return;
         for (AggregatedCourse course : aggregatedCourses) {
             if (course.getName().equalsIgnoreCase(courseName)) {
                 course.addPointsToTotal(score(courseToAggregate));
