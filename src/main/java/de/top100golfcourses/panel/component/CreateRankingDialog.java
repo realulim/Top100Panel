@@ -24,7 +24,7 @@ public final class CreateRankingDialog extends AbstractRankingDialog {
         newRankings.setName(selectedName);
         existingRankings.add(newRankings);
         select.setItems(existingRankings);
-        select.setValue(newRankings);
+        select.setSelectedItem(newRankings);
     }
 
 }
