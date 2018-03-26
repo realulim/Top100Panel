@@ -53,6 +53,7 @@ public final class MainPage extends VerticalLayout implements View {
     private Button renameRankingButton = null;
     private Button deleteRankingButton = null;
     private Button exportRankingButton = null;
+    private UserMenu userMenu = null;
 
     private final String user;
     private final Role role;
@@ -95,7 +96,7 @@ public final class MainPage extends VerticalLayout implements View {
             header.addComponent(chatBox);
             header.setExpandRatio(chatBox, 1.0f); // Expand
         }
-        UserMenu userMenu = new UserMenu(rankingGrid, selectableRankings);
+        this.userMenu = new UserMenu(selectableRankings);
         attachAggregationCommandListeners(userMenu.getAggregationMenuItems());
         header.addComponent(userMenu);
 
@@ -130,17 +131,20 @@ public final class MainPage extends VerticalLayout implements View {
         comboBox.setItems(selectableRankings);
         comboBox.setItemCaptionGenerator(Rankings::getId); // the function to produce the strings shown in the combo box for each item
         comboBox.addValueChangeListener((ValueChangeEvent<Rankings> event) -> {
-            rankingGrid.setRankings(event.getValue());
-            if (rankingGrid.isEditable()) {
-                createSaveRankingButton();
-                footer.addComponent(saveRankingButton, 0);
+            if (event.getValue() != null) {
+                rankingGrid.setRankings(event.getValue());
+                if (rankingGrid.isEditable()) {
+                    createSaveRankingButton();
+                    footer.addComponent(saveRankingButton, 0);
+                }
+                else if (saveRankingButton != null) {
+                    footer.removeComponent(saveRankingButton);
+                }
+                if (renameRankingButton != null && !renameRankingButton.isVisible()) renameRankingButton.setVisible(true);
+                if (deleteRankingButton != null && !deleteRankingButton.isVisible()) deleteRankingButton.setVisible(true);
+                if (exportRankingButton != null && !exportRankingButton.isVisible()) exportRankingButton.setVisible(true);
             }
-            else if (saveRankingButton != null) {
-                footer.removeComponent(saveRankingButton);
-            }
-            if (renameRankingButton != null && !renameRankingButton.isVisible()) renameRankingButton.setVisible(true);
-            if (deleteRankingButton != null && !deleteRankingButton.isVisible()) deleteRankingButton.setVisible(true);
-            if (exportRankingButton != null && !exportRankingButton.isVisible()) exportRankingButton.setVisible(true);
+            // else: combobox entry was deselected, nothing more to do
         });
         body.addComponent(comboBox);
     }
@@ -227,10 +231,16 @@ public final class MainPage extends VerticalLayout implements View {
 
     private void attachAggregationCommandListeners(List<MenuItem> aggregationMenuItems) {
         aggregationMenuItems.forEach((menuItem) -> {
-            Command cmd = (MenuItem selectedItem) -> {
-                this.comboBox.setSelectedItem(null);
+            Command updateRankingGridCommand = (MenuItem selectedItem) -> {
+                rankingGrid.setRankings(userMenu.getTopList().toRankings());
+                rankingGrid.getGrid().removeColumn(RankingGrid.BUCKET_COL_ID);
+                rankingGrid.getGrid().removeColumn(RankingGrid.PLAYED_COL_ID);
+                rankingGrid.getGrid().getColumns().stream().forEach(item -> item.setSortable(false));
             };
-            Command multiCommand = new MultiCommand(menuItem.getCommand(), cmd);
+            Command updateComboBoxCommand = (MenuItem selectedItem) -> {
+                comboBox.setSelectedItem(null); // deselect combobox item
+            };
+            Command multiCommand = new MultiCommand(menuItem.getCommand(), updateRankingGridCommand, updateComboBoxCommand);
             menuItem.setCommand(multiCommand);
         });
     }

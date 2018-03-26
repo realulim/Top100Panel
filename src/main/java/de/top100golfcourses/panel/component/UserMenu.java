@@ -20,12 +20,11 @@ import de.top100golfcourses.panel.entity.TopList;
 
 public final class UserMenu extends CustomComponent {
 
-    private final RankingGrid rankingGrid;
     private final List<Rankings> allRankings;
     private final List<MenuItem> aggregationMenuItems = new ArrayList<>();
+    private TopList topList = null;
 
-    public UserMenu(RankingGrid rankingGrid, List<Rankings> allRankings) {
-        this.rankingGrid = rankingGrid;
+    public UserMenu(List<Rankings> allRankings) {
         this.allRankings = allRankings;
 
         VerticalLayout layout = new VerticalLayout();
@@ -59,17 +58,17 @@ public final class UserMenu extends CustomComponent {
         setSizeUndefined();
     }
 
+    private void createTopList(Algorithm algorithm) {
+        String name = allRankings.get(0).getName();
+        this.topList = new TopList(name, allRankings, algorithm);
+    }
+
     public List<MenuItem> getAggregationMenuItems() {
         return aggregationMenuItems;
     }
 
-    private void createTopList(Algorithm algorithm) {
-        String name = allRankings.get(0).getName();
-        TopList topList = new TopList(name, allRankings, algorithm);
-        rankingGrid.setRankings(topList.toRankings());
-        rankingGrid.getGrid().removeColumn(RankingGrid.BUCKET_COL_ID);
-        rankingGrid.getGrid().removeColumn(RankingGrid.PLAYED_COL_ID);
-        rankingGrid.getGrid().getColumns().stream().forEach(item -> item.setSortable(false));
+    public TopList getTopList() {
+        return topList;
     }
 
 }
