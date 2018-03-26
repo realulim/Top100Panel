@@ -63,6 +63,7 @@ public final class UserMenu extends CustomComponent {
         rankingGrid.setRankings(topList.toRankings());
         rankingGrid.getGrid().removeColumn(RankingGrid.BUCKET_COL_ID);
         rankingGrid.getGrid().removeColumn(RankingGrid.PLAYED_COL_ID);
+        rankingGrid.getGrid().getColumns().stream().forEach(item -> item.setSortable(false));
     }
 
 }
