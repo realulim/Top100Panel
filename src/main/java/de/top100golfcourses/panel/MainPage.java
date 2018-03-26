@@ -13,6 +13,8 @@ import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.MenuBar.Command;
+import com.vaadin.ui.MenuBar.MenuItem;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window.CloseEvent;
@@ -22,6 +24,7 @@ import org.vaadin.chatbox.SharedChat;
 
 import de.top100golfcourses.panel.component.ConfirmDeleteDialog;
 import de.top100golfcourses.panel.component.CreateRankingDialog;
+import de.top100golfcourses.panel.component.MultiCommand;
 import de.top100golfcourses.panel.component.PersistentChatBox;
 import de.top100golfcourses.panel.component.RankingGrid;
 import de.top100golfcourses.panel.component.RenameRankingDialog;
@@ -92,8 +95,9 @@ public final class MainPage extends VerticalLayout implements View {
             header.addComponent(chatBox);
             header.setExpandRatio(chatBox, 1.0f); // Expand
         }
-        UserMenu logoutComponent = new UserMenu(rankingGrid, selectableRankings);
-        header.addComponent(logoutComponent);
+        UserMenu userMenu = new UserMenu(rankingGrid, selectableRankings);
+        attachAggregationCommandListeners(userMenu.getAggregationMenuItems());
+        header.addComponent(userMenu);
 
         // Body
         body.setSizeFull();
@@ -215,6 +219,16 @@ public final class MainPage extends VerticalLayout implements View {
             exportRankingButton.setVisible(false);
             footer.addComponent(exportRankingButton);
         }
+    }
+
+    private void attachAggregationCommandListeners(List<MenuItem> aggregationMenuItems) {
+        aggregationMenuItems.forEach((menuItem) -> {
+            Command cmd = (MenuItem selectedItem) -> {
+                this.comboBox.setSelectedItem(null);
+            };
+            Command multiCommand = new MultiCommand(menuItem.getCommand(), cmd);
+            menuItem.setCommand(multiCommand);
+        });
     }
 
 }

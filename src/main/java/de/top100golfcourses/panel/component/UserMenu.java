@@ -1,5 +1,6 @@
 package de.top100golfcourses.panel.component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.vaadin.server.Page;
@@ -21,6 +22,7 @@ public final class UserMenu extends CustomComponent {
 
     private final RankingGrid rankingGrid;
     private final List<Rankings> allRankings;
+    private final List<MenuItem> aggregationMenuItems = new ArrayList<>();
 
     public UserMenu(RankingGrid rankingGrid, List<Rankings> allRankings) {
         this.rankingGrid = rankingGrid;
@@ -35,12 +37,12 @@ public final class UserMenu extends CustomComponent {
 
         if (allRankings.size() > 0) {
             MenuItem aggregations = user.addItem("Aggregations", null, null);
-            aggregations.addItem("Linear", (MenuItem selectedItem) -> {
+            aggregationMenuItems.add(aggregations.addItem("Linear", (MenuItem selectedItem) -> {
                 createTopList(new Linear());
-            });
-            aggregations.addItem("Quadratic", (MenuItem selectedItem) -> {
+            }));
+            aggregationMenuItems.add(aggregations.addItem("Quadratic", (MenuItem selectedItem) -> {
                 createTopList(new Quadratic());
-            });
+            }));
         }
 
         user.addItem("Logout", null, (MenuItem selectedItem) -> {
@@ -55,6 +57,10 @@ public final class UserMenu extends CustomComponent {
 
         // this is not needed for a Composite
         setSizeUndefined();
+    }
+
+    public List<MenuItem> getAggregationMenuItems() {
+        return aggregationMenuItems;
     }
 
     private void createTopList(Algorithm algorithm) {
