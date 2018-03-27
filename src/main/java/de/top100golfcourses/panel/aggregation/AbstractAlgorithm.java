@@ -8,12 +8,15 @@ import java.util.Collections;
 import java.util.List;
 
 import de.top100golfcourses.panel.entity.AggregatedCourse;
+import de.top100golfcourses.panel.entity.BucketColor;
 import de.top100golfcourses.panel.entity.RankedCourse;
 import de.top100golfcourses.panel.entity.Rankings;
 
 public abstract class AbstractAlgorithm implements Algorithm {
 
     public abstract int score(RankedCourse course);
+    public abstract int getPoints(BucketColor color);
+
     private int numberOfRankings = 1;
 
     @Override

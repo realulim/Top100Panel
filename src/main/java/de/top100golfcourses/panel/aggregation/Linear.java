@@ -10,20 +10,23 @@ public class Linear extends AbstractAlgorithm {
 
     @Override
     public int score(RankedCourse course) {
-        String color = course.getBucketColor();
-        if (color.equals(BucketColor.Field.name())) {
-            return 1;
+        return getPoints(BucketColor.byName(course.getBucketColor()));
+    }
+
+    @Override
+    public int getPoints(BucketColor color) {
+        switch(color) {
+            case Gold:
+                return 4;
+            case Silver:
+                return 3;
+            case Bronze:
+                return 2;
+            case Field:
+                return 1;
+            default:
+                return 0;
         }
-        else if (color.equals(BucketColor.Bronze.name())) {
-            return 2;
-        }
-        else if (color.equals(BucketColor.Silver.name())) {
-            return 3;
-        }
-        else if (color.equals(BucketColor.Gold.name())) {
-            return 4;
-        }
-        else return 0;
     }
 
 }
