@@ -9,7 +9,7 @@ public class AggregatedCourse extends RankedCourse implements Comparable {
 
     private Integer totalPoints = 0; // total number of points accumulated over all votes
     private Double averagePoints = 0.00; // average number of points per vote
-    private Integer quorum = 0; // how many votes were cast for this course
+    private Integer votes = 0; // how many votes were cast for this course
 
     public int getTotalPoints() {
         return totalPoints;
@@ -31,12 +31,12 @@ public class AggregatedCourse extends RankedCourse implements Comparable {
         this.averagePoints = averagePoints;
     }
 
-    public int getQuorum() {
-        return quorum;
+    public int getVotes() {
+        return votes;
     }
 
-    public void setQuorum(int quorum) {
-        this.quorum = quorum;
+    public void setVotes(int votes) {
+        this.votes = votes;
     }
 
     @Override
@@ -45,7 +45,7 @@ public class AggregatedCourse extends RankedCourse implements Comparable {
             AggregatedCourse other = (AggregatedCourse)o;
             int compared = averagePoints.compareTo(other.getAveragePoints());
             if (compared == 0) compared = totalPoints.compareTo(other.getTotalPoints());
-            if (compared == 0) compared = quorum.compareTo(other.getQuorum());
+            if (compared == 0) compared = votes.compareTo(other.getVotes());
             return -compared;
         }
         else return 0;
@@ -56,7 +56,7 @@ public class AggregatedCourse extends RankedCourse implements Comparable {
         int hash = 7;
         hash = 29 * hash + Objects.hashCode(this.totalPoints);
         hash = 29 * hash + Objects.hashCode(this.averagePoints);
-        hash = 29 * hash + this.quorum;
+        hash = 29 * hash + this.votes;
         return hash;
     }
 
@@ -72,18 +72,19 @@ public class AggregatedCourse extends RankedCourse implements Comparable {
             return false;
         }
         final AggregatedCourse other = (AggregatedCourse) obj;
-        if (this.quorum != other.quorum) {
-            return false;
-        }
         if (!Objects.equals(this.totalPoints, other.totalPoints)) {
             return false;
         }
-        return Objects.equals(this.averagePoints, other.averagePoints);
+        if (!Objects.equals(this.averagePoints, other.averagePoints)) {
+            return false;
+        }
+        return Objects.equals(this.votes, other.votes);
     }
+
 
     @Override
     public String toString() {
-        return "\nAggregatedCourse{" + "totalPoints=" + totalPoints + ", averagePoints=" + averagePoints + ", quorum=" + quorum + '}';
+        return "\nAggregatedCourse{" + "totalPoints=" + totalPoints + ", averagePoints=" + averagePoints + ", votes=" + votes + '}';
     }
 
 }

@@ -82,14 +82,14 @@ public class AbstractAlgorithmTest {
             int totalQuorum = 0;
             AggregatedCourse last = null;
             for (AggregatedCourse course : courses) {
-                totalQuorum += course.getQuorum();
+                totalQuorum += course.getVotes();
                 if (last != null) {
                     assertEquals(last.getPos() + 1, course.getPos());
                     assertTrue(last.getAveragePoints() >= course.getAveragePoints());
                     if (last.getAveragePoints() == course.getAveragePoints()) {
                         assertTrue(last.getTotalPoints() >= course.getTotalPoints());
                         if (last.getTotalPoints() == course.getTotalPoints()) {
-                            assertTrue(last.getQuorum() >= course.getQuorum());
+                            assertTrue(last.getVotes() >= course.getVotes());
                         }
                     }
                     last = course;
@@ -108,9 +108,9 @@ public class AbstractAlgorithmTest {
         addCourse(0, createCourse(BucketColor.Gold.getIndex(), "Course2"));
 
         List<AggregatedCourse> courses = CUT_Linear.calculate(allRankings);
-        assertEquals(1, courses.get(0).getQuorum());
+        assertEquals(1, courses.get(0).getVotes());
         assertEquals(4.0, courses.get(0).getAveragePoints(), 0.0); // 4/1
-        assertEquals(2, courses.get(1).getQuorum());
+        assertEquals(2, courses.get(1).getVotes());
         assertEquals(3.5, courses.get(1).getAveragePoints(), 0.0); // (4+3)/2
     }
 
