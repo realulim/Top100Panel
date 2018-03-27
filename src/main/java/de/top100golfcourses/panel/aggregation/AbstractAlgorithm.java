@@ -62,7 +62,7 @@ public abstract class AbstractAlgorithm implements Algorithm {
     }
 
     protected List<AggregatedCourse> sort(List<AggregatedCourse> coursesToSort) {
-        Collections.sort(coursesToSort); // default sorting is by average points, then total points
+        Collections.sort(coursesToSort); // default sorting is by average points, then total points, then quorum
         int i = 0;
         for (AggregatedCourse course : coursesToSort) {
             course.setPos(++i);

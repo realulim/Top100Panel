@@ -7,9 +7,9 @@ import java.util.Objects;
  */
 public class AggregatedCourse extends RankedCourse implements Comparable {
 
-    private Integer totalPoints = 0;
-    private Double averagePoints = 0.00;
-    private Integer quorum = 0;
+    private Integer totalPoints = 0; // total number of points accumulated over all votes
+    private Double averagePoints = 0.00; // average number of points per vote
+    private Integer quorum = 0; // how many votes were cast for this course
 
     public int getTotalPoints() {
         return totalPoints;
