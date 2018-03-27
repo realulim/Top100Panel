@@ -53,7 +53,7 @@ public abstract class AbstractAlgorithm implements Algorithm {
 
     protected List<AggregatedCourse> calculatePointAverages(List<AggregatedCourse> courses) {
         for (AggregatedCourse course : courses) {
-            double averagePoints = course.getTotalPoints() / (double)numberOfRankings;
+            double averagePoints = course.getTotalPoints() / (double)course.getQuorum();
             Double truncatedDouble = BigDecimal.valueOf(averagePoints).setScale(2, RoundingMode.HALF_UP).doubleValue();
             course.setAveragePoints(truncatedDouble);
             course.setComments("Average: " + course.getAveragePoints() + ", Total: " + course.getTotalPoints() + ", Quorum: " + course.getQuorum());

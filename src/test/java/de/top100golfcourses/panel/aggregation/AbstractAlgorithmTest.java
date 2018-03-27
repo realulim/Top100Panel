@@ -43,8 +43,8 @@ public class AbstractAlgorithmTest {
     @Test
     public void calculate_noCourseNames() {
         createRankings(3);
-        addCourse(0, createCourse(0));
-        addCourse(1, createCourse(1));
+        addCourse(0, createCourse(BucketColor.Gold.getIndex()));
+        addCourse(1, createCourse(BucketColor.Gold.getIndex()));
         for (AbstractAlgorithm CUT : algorithms) {
             List<AggregatedCourse> courses = CUT.calculate(allRankings);
             assertEquals(0, courses.size());
@@ -53,10 +53,9 @@ public class AbstractAlgorithmTest {
 
     @Test
     public void calculate_justOneCourseHasAName() {
-        int bucket = 1;
         createRankings(2);
-        addCourse(0, createCourse(1));
-        addCourse(1, createCourse(bucket, "My Course"));
+        addCourse(0, createCourse(BucketColor.Gold.getIndex()));
+        addCourse(1, createCourse(BucketColor.Gold.getIndex(), "My Course"));
         for (AbstractAlgorithm CUT : algorithms) {
             System.out.println("Algorithm: " + CUT);
             List<AggregatedCourse> courses = CUT.calculate(allRankings);
@@ -99,6 +98,20 @@ public class AbstractAlgorithmTest {
             }
             assertEquals(totalVotes, totalQuorum);
         }
+    }
+
+    @Test
+    public void calculate_unplayedCourseShouldNotInfluencePointsAverage() {
+        createRankings(2);
+        addCourse(0, createCourse(BucketColor.Gold.getIndex(), "Course1"));
+        addCourse(1, createCourse(BucketColor.Silver.getIndex(), "Course1"));
+        addCourse(0, createCourse(BucketColor.Gold.getIndex(), "Course2"));
+
+        List<AggregatedCourse> courses = CUT_Linear.calculate(allRankings);
+        assertEquals(1, courses.get(0).getQuorum());
+        assertEquals(4.0, courses.get(0).getAveragePoints(), 0.0); // 4/1
+        assertEquals(2, courses.get(1).getQuorum());
+        assertEquals(3.5, courses.get(1).getAveragePoints(), 0.0); // (4+3)/2
     }
 
     private void createRankings(int rankingsCount) {
