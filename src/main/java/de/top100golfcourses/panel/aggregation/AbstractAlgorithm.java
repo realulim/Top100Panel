@@ -17,11 +17,8 @@ public abstract class AbstractAlgorithm implements Algorithm {
     public abstract int score(RankedCourse course);
     public abstract int getPoints(BucketColor color);
 
-    private int numberOfRankings = 1;
-
     @Override
     public List<AggregatedCourse> calculate(Collection<Rankings> allRankings) {
-        numberOfRankings = allRankings.size();
         List<AggregatedCourse> courses = new ArrayList<>();
         for (Rankings rankings : allRankings) {
             for (RankedCourse course : rankings.getRankedCourses()) {
