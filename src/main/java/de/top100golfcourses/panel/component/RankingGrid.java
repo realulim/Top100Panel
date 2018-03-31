@@ -28,6 +28,7 @@ import de.top100golfcourses.panel.da.Suggestions;
 import de.top100golfcourses.panel.entity.BucketColor;
 import de.top100golfcourses.panel.entity.RankedCourse;
 import de.top100golfcourses.panel.entity.Rankings;
+import de.top100golfcourses.panel.entity.Role;
 
 public final class RankingGrid extends CustomComponent {
 
@@ -141,7 +142,8 @@ public final class RankingGrid extends CustomComponent {
     public void setRankings(Rankings newRankings) {
         this.rankings = newRankings;
         String user = VaadinSession.getCurrent().getAttribute("user").toString();
-        this.editable = user.equals(newRankings.getUser());
+        Role role = VaadinSession.getCurrent().getAttribute(Role.class);
+        this.editable = user.equals(newRankings.getUser()) || role == Role.Correspondent;
         init();
     }
 

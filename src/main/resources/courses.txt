@@ -6,7 +6,7 @@ Achimer
 Adendorf
 Ahaus
 Aldruper Heide
-Allgäuer
+Allgäuer Ottobeuren
 Alpenseehof
 Alpirsbach
 Altenhof
@@ -16,40 +16,45 @@ Altrhein
 Altötting-Burghausen
 Am Alten Fliess
 Am Deister
-Am Donner Kleve
 Am Donnersberg
+Am Eixendorfer See
 Am Harrl
-Am Haus Amecke
+Am Hirschgarten
 Am Hockenberg
 Am Katzberg
 Am Kemnader See
+Am Kloster Kamp
 Am Lüderich
 Am Meer Bad Zwischenahn
 Am Nationalpark Bayrischer Wald
+Am Obinger See
 Am Reichswald
 Am Sachsenwald
+Ammerland Bad Zwischenahn
 An der Göhrde
 An der Oder
 An der Pinnau
 An der Schlei
+Anetseder
 Ansbach
-Anthal Waginger See
+Anthal-Waginger See
+Arenshorster
 Artland
 Aschaffenburger
-Aschheim
 Attighof
 Auf der Gsteig
-Augsburg
-Bachgrund Nessie
+Augsburg-Burgwalden
+B.A. Sennelager
 Bachgrund Happy Luck
+Bachgrund Nessie
 Bad Abbach-Deutenhof
 Bad Arolsen
 Bad Bevensen
 Bad Bramstedt
 Bad Driburger
 Bad Gögging
-Bad Griesbach Beckenbauer
 Bad Griesbach Brunnwies
+Bad Griesbach Beckenbauer
 Bad Griesbach Engled
 Bad Griesbach Lederbach
 Bad Griesbach Porsche
@@ -67,6 +72,7 @@ Bad Rappenau
 Bad Salzdetfurth-Hildesheim
 Bad Salzuflen
 Bad Saulgau
+Bad Säckingen
 Bad Überkingen
 Bad Vilbeler Lindenhof
 Bad Wildungen
@@ -80,12 +86,16 @@ Bavarian München-Eicherloh
 Bayerwald Poppenreut
 Bayerwald Waldkirchen-Dorn
 Bayreuth Links
-Bella Vista Golfpark Bad Birnbach
+Bella Vista Bad Birnbach
 Bensheim
 Berchtesgaden
 Berchtesgadener Land
+Bergen-Hohne
 Bergisch Land
 Bergkramerhof
+Berlin Blankenburg
+Berlin Prenden
+Berlin Weißensee
 Berlin-Wannsee
 Berliner Gatow
 Berliner Motzener See
@@ -93,6 +103,7 @@ Berliner Stolper Heide
 Beuerberg
 Biblis-Wattenheim
 Bielefelder
+Birkenhof
 Bitburger Land
 Bochumer
 Bokensdorf
@@ -100,6 +111,8 @@ Bonn-Godesberg
 Borghees
 Bostalsee
 Braunschweig
+Breisgau
+Bremer Lesmona
 Bremer Schweiz
 Bremerhaven-Bürgerpark
 Brilon
@@ -107,8 +120,8 @@ Brodauer Mühle
 Bruchsal
 Bruckmannshof
 Brunstorf
-Brückhausen
-Buchenhof-Hetzbach
+Brückhausen Everswinkel-Alverskirchen
+Buchenhof
 Buchholz Nordheide
 Budersand Sylt
 Burg Konradsheim
@@ -116,25 +129,23 @@ Burg Overbach
 Burg Zievel
 Burgdorfer
 Burgwedel
+Burkersdorf
 Buxtehude
 Büsum Dithmarschen
-Castrop-Rauxel
+Castrop-Rauxel in Frohlinde
 Chemnitz Wasserschloss Klaffenbach
 Chieming
 Chiemsee Prien
-Cleebronn
 Clostermanns Hof
-Club zur Vahr Bremen
 Club zur Vahr Garlstedter Heide
 Coburg Schloss Tambach
-Cochem Mosel
+Cochem Mosel Course
 Coesfeld
 Curau
 Dachau
 Darmstadt Traisa
 Deggendorfer
 Deinster Mühle
-Der Golf Club am Obinger See
 Dessau
 Deutsche Weinstraße Golfgarten
 Dillenburg
@@ -145,21 +156,24 @@ Donau Passau-Raßbach
 Donau-Riss
 Donauwörth Gut Lederstatt
 Dortmunder
-Drei Gleichen Mühlberg
+Drei Gleichen
 Drei Thermen Golfresort
 Dreibäumen
 Dresden Elbflorenz
 Dresden Ullersdorf
+Duvenhof
 Dübener Heide
+Düneburg
 Düren
-Düsseldorf auf der Lausward
 Düsseldorf Grafenberg
 Düsseldorfer
-Duvenhof
+Erzgebirge
 Ebersberg
 Edelstein-Hunsrück
+Edersee Golf
 Eifel
 Eisenach im Wartburgkreis
+Elbflorenz
 Elfrather Mühle
 Elmpt
 Emstal
@@ -169,16 +183,13 @@ Erftaue
 Erfurt
 Erlangen
 Escheburg
-Eschenried Eschenhof
-Eschenried Eschenried
-Eschenried Gut Häusern
-Eschenried Gröbenbach
+Eschenhof
+Eschenried
 Eschenrod
+Eschhofen
 Essen-Heidhausen
 Essener Haus Oefte
 Euregio Bad Bentheim
-Breisgau Rebland
-Breisgau Heckenrose
 Fahrenbach im Fichtelgebirge
 Falkenstein
 Fehmarn
@@ -191,37 +202,42 @@ Ford Köln
 Frankfurter
 Freiburger
 Freudenstadt
+Friedberg
 Fränkische Schweiz
 Fulda Rhön
 Furth im Wald
 Föhr
-Förde Glücksburg
+Förde-Glücksburg
 Fürstlicher Oberschwaben
 Fürth
 Gahlenz
 Garmisch-Partenkirchen
 Geierstal
+Gelsenkirchener Haus Leythe
 Gelstern Lüdenscheid-Schalksmühle
 Gera
 Gerhelm
-Gernsheim
+Gernsheim Diplomatenplatz
+Gernsheim Parklandplatz
+Gerolsbach
 Gersthofen
 Gifhorn
 Gimborner Land
 Glashofen Neusass
-Gleidingen
+Gleidingen Golf
+Goldachtal
 Golf & More Huckingen
+Golf Moyland International
 Golf Range Dortmund
 Golf Range Frankfurt
-Golf in Hude Nordsee
-Golf in Hude Weser
-Golf in Hude Hunte
+Golf am Donner Kleve
+Golf am Haus Amecke
+Golf in Hude
 Golf in Wall
-Golf International Moyland
 Golf you up
 GolfCity Köln Pulheim
 GolfCity München Puchheim
-Gerolsbach
+GolfPark 
 GolfRange Augsburg
 GolfRange Berlin-Großbeeren
 GolfRange Bremen
@@ -231,44 +247,54 @@ GolfRange München Kirchstockach
 GolfRange München-Germering Nord
 GolfRange München-Germering Süd
 GolfRange Nürnberg
+Golfen in Herdecke
+Golfen in Hiltrup
 Golfriege ETUF
+Golfsport 
 Grafenhof
 Green Eagle Nord
 Green Eagle Süd
-Greifswald Storchenplatz
+Greifswald
 Grevenmühle
 Gross Kienitz
+Groß-Zimmern
 Großensee
 Großflottbeker
-Groß-Zimmern
+Gröbenbach
 Gröbernhof
 Gudensberg
-Gut Apeldör Big Apple
-Gut Apeldör Big 9
+Gut Apeldör
 Gut Arenshorst
 Gut Berge
 Gut Bissenmoor
 Gut Brettberg Lohne
-Gut Düneburg
+Gut Frielinghausen
 Gut Glinde
 Gut Grambek
 Gut Hahues zu Telgte
 Gut Hainmühlen
 Gut Haseldorf
+Gut Häusern
 Gut Heckenhof
 Gut Hühnerhof
 Gut Immenbeck
+Gut Ising
 Gut Kaden
-Gut Lärchenhof
 Gut Leimershof
+Gut Lärchenhof
+Gut Mentzelsfelde
 Gut Minoritenhof
-Gut Rieden 18 Loch
-Gut Rieden 9 Loch
+Gut Neuenhof
+Gut Ottenhausen
+Gut Rieden
 Gut Sansenhof
 Gut Uhlenhorst
+Gut Waldhof
 Gut Waldshagen
+Gut Westerhart
+Gut Wissmannshof
 Gut Wulfsmühle
-Gutshof Papenburg
+Gutshof Papenburg-Aschendorf
 Gäuboden
 Göppingen
 Gütermann Gutach
@@ -276,17 +302,20 @@ Haan-Düsseltal
 Habichtswald
 Haghof
 Hahn
+Haidt
+Halle
 Hamburg Wendlohe
 Hamburg-Ahrensburg
 Hamburg-Holm
 Hamburg-Oberalster
 Hamburg-Walddörfer
-Hameln Baron von Münchhausen
-Hameln Lucia von Reden
+Hamelner Schloss Schwöbber Baron von Münchhausen
+Hamelner Schloss Schwöbber Lucia von Reden
 Hamm
 Hammetweil
+Hanau-Wilhelmsbad
 Hannover
-Hardenberg Götting
+Hardenberg Göttingen
 Hardenberg Niedersachsen
 Harthausen
 Harz
@@ -294,8 +323,7 @@ Hassberge
 Hatten
 Hauptsmoorwald Bamberg
 Haus Bey
-Haus Kambach Eschweiler
-Hausen am Tann
+Haus Kambach Eschweiler-Kinzweiler
 Haxterhöhe Links
 Hechingen-Hohenzollern
 Heddesheim Gut Neuzenhof
@@ -303,25 +331,27 @@ Heerhof
 Heidelberg-Lobenfeld
 Heidewald Vohren
 Heilbronn-Hohenlohe
-Heitlinger Tiefenbach
+Heitlinger
 Hellengerst
-Herdecke
+Herford
+Herrnhof
 Herzogenaurach
 Herzogstadt Celle
+Herzogswalde
 Hetzenhof
-Hiltrup
 Hittfeld
 Hochschwarzwald
 Hochstatt Härtsfeld-Ries
-Hof
 Hof Berg
+Hof Düsterberg
 Hof Hausen vor der Sonne
-Hof Trages
+Hof Gattendorf
 Hofgut Georgenthal
 Hofgut Praforst
 Hofgut Scheibenhardt
 Hohe Klint Cuxhaven
 Hohen Wieschendorf
+Hohenhardter Hof
 Hohenpähl
 Hohenstaufen
 Hohwachter Bucht
@@ -334,10 +364,13 @@ Hummelbachaue
 Husumer Bucht
 Hösel
 Höslwang im Chiemgau
+Hünxerwald
 Idstein Nord
 Idstein Süd
 Iffeldorf
 Ingolstadt
+Insel Langeoog
+Insel Wangerooge
 Internationaler Bonn
 Isarwinkel
 Isernhagen
@@ -347,66 +380,66 @@ Jammertal
 Jena
 Jersbek
 Johannesthal
-Jura Golf Hilzhofen
-Jura Golf Am Habsberg
+Jura Am Habsberg
+Jura Hilzhofen
 Kosaido
 Kaiserhöhe
 Kallin
+Karlsruhe Gut Batzenhof
 Karwendel
 Kassel-Wilhelmshöhe
 Katharinenhof
-Kiawah Landgut Hof Hayna
+Kiawah Hof Hayna
 Kieler Havighorst
-Kirchheim - Wendlingen
+Kirchheim-Wendlingen
 Kitzeberg
 Kitzingen
 Konstanz
 Korswandt
 Krefelder
+Krogaspe
 Kronach
 Kronberg
-Kurhessischer Oberaula Bad Hersfeld
+Kurhessischer Oberaula/Bad Hersfeld
 Kurpfalz
 Köln Refrath
 Kölner Championship
 Kölner Links
+Königsbrunn
 Königsfeld
 Königshof Sittensen
 Kürten
 Ladbergen
-Werdenfels
-Öschberghof East
-Öschberghof Old
-Öschberghof West
+Laineck-Bayreuth
 Landau/Isar
 Landgut Dreihof
 Landshut
 Langenhagen
 Lausitzer
-Lauterbach Schloß Sickendorf
+Lauterbach Schloss Sickendorf
 Lauterhofen
 Lechfeld
+Leine Golf Hannover
 Leinetal Einbeck
 Leipzig
 Leitershofen
-Lenzfried
 Leonhardshaun
 Leverkusen
 Licher
 Lichtenau-Weickershof
 Lietzenhof
 Lilienthal
-Lindau - Bad Schachen
+Lindau-Bad Schachen
 Lippischer
 Lippstadt
 Loherhof
 Lohersand
 Lutzhorn
 Lübeck-Travemünder
-Magdeburg
 Maasberg Bad-Sobernheim
+Magdeburg
 Mahlow
-Main-Spessart
+Main-Spessart-Eichenfürst
 Main-Taunus
 Mainzer
 Mangfalltal
@@ -416,26 +449,30 @@ Marhördt
 Maria Bildhausen
 Marienburger
 Marienfeld
-Marine-Golf-Club Sylt
-Maritim Golfpark Ostsee
+Marine Sylt
+Maritim Ostsee
+Markgräflerland Kandern
 Markkleeberg am See
 Mecklenburg-Strelitz
 Meerbusch
-Memmingen
+Memmingen Gut Westerhart
 Mennhausen
 Mettmann
 Miltenberg
 Mittelholsteinischer Aukrug
 Mittelrheinischer Bad Ems
-Möhnesee
+Mittelstetten
+Morsum auf Sylt
 Mudau
 Munster
-Märkischer Potsdam
 Märkischer Hagen
+Märkischer Potsdam
+Möhnesee
 Mönchengladbach Wanlo
 Mühlenhof
 Mülheim an der Ruhr
 Mülheim an der Ruhr Raffelberg
+München Aschheim
 München Eichenried
 München Valley
 München-Riedhof
@@ -444,10 +481,10 @@ München-West Odelzhausen
 Münchener
 Münster-Tinnen
 Münster-Wilkinghege
-Münsterland
-New Golf Club Neu-Ulm
+Münsterland Burgsteinfurt
 Nahetal
 Neckartal
+Neu-Ulm
 Neuhof
 Neusasser
 Niederrheinischer Duisburg
@@ -464,6 +501,7 @@ Oberpfälzer Wald
 Oberrot-Frankenberg
 Oberstaufen
 Oberstdorf
+Oberzwieselau
 Odenwald
 Olching
 Oldenburger Land
@@ -475,41 +513,47 @@ Osnabrück-Dütetal
 Osnabrücker
 Ostfriesland
 Ostseebad Grömitz
-Ostseegolfclub Wittenbeck
 Owingen-Überlingen
+Öschberghof
 Paderborner Land
 Pankow
 Panorama Golf Passau
 Patting-Hochriesblick
+Peine-Edemissen
 Peiner Hof
+Pfaffing Wasserburger Land
 Pfalz Neustadt an der Weinstraße
 Pforzheim Karlshäuser Hof
-Pfälzerwald
 Pfullinger Hof
+Pfälzerwald
 Plauen-Steinsdorf
 Pleiskirchen
 Potsdamer
 Pottenstein-Weidenloh
-Talheimer Hof
 Puschendorf
 Ravensberger Land
 Ravensburg
 Red Golf Moorfleet
 Red Golf Quickborn
 Regensburg
-Rehburg-Loccum
+Rehburg-Loccum 
 Reinfeld
 Reischenhof
 Reit im Winkl
+Renneshof
 Repetal Südsauerland
 Residenz Rothenbach
+Rethmar Golf Links
 Reutlingen-Sonnenbühl
+Rhein-Badenweiler
 Rhein-Main
 Rhein-Sieg
 Rhein-Wied
-Rheine/Mesum Nord
-Rheine/Mesum Süd
+Rheinblick
+Rheine/Mesum
 Rheinhessen
+Rheinstetten
+Rheintal
 Rickenbach
 Rittergut Birkhof
 Rittergut Hedwigsburg
@@ -517,21 +561,24 @@ Rittergut Rothenberger Haus
 Rochushof Deggenhausertal
 Rolling Hills Baumholder
 Romantische Straße Dinkelsbühl
+Rosenhof
 Rothenburg-Schönbronn
 Rottaler
 Rottbach
 Royal Homburger New
 Royal Homburger Old
-Royal Saint Barbara's
+Royal Saint Barbara's Dortmund
 Ruhpolding
 Römerhof
 Röttgersbach
 Rügen
 Saarbrücken
 Sagmühle
-Salzgitter Liebenburg
+Salzgitter
 Sauerland
+Scharbeutz
 Schaumburg
+Scheidegg
 Schloss Auel
 Schloss Braunfels
 Schloss Breitenburg
@@ -540,13 +587,16 @@ Schloss Elkofen
 Schloss Georghausen
 Schloss Guttenburg
 Schloss Haag
+Schloss Horst
 Schloss Igling
 Schloss Klingenburg
 Schloss Kressbach
+Schloss Krugsdorf
 Schloss Langenstein
 Schloss Liebenstein
 Schloss Lüdersburg Lakes
 Schloss Lüdersburg Old
+Schloss Lütetsburg
 Schloss Mainsondheim
 Schloss Maxlrain
 Schloss Meisdorf
@@ -564,11 +614,13 @@ Schloss Westerholt
 Schloss Wilkendorf Sandy Lyle
 Schloss Wilkendorf Westside
 Schlossberg
-Schloß Horst
+Schlossgut Lenzfried
+Schlossgut Neumagenheim
 Schmallenberg
 Schmidmühlen
+Schmitzhof
 Schopfheim
-Schultenhof Peckeloh
+Schultenhof Versmold-Peckeloh
 Schwanhof
 Schwarze Heide Bottrop-Kirchhellen
 Schweinfurt
@@ -581,35 +633,38 @@ Segeberg
 Seligenstadt am Kortenbach
 Sellinghausen
 Semlin am See
-Senne Gut Welschof
-Sieben-Berge Rheden
+Senne Golf Gut Welschof
+Sieben-Berge
 Siegen-Olpe
 Siegerland
-Siek Ahrensburg
+Siek/Ahrensburg
+Sigmaringen Zollern-Alb
 Sinsheim Buchenauerhof
-Sinzing Gut Minoritenhof
+Soltau
 Sonnenalp-Oberallgäu Oberallgäu
 Sonnenalp-Oberallgäu Sonnenalp
 Sonnenhof
 Spessart
-Sporting Club Berlin Scharmützelsee Arnold Palmer
-Sporting Club Berlin Scharmützelsee Nick Faldo
-Sporting Club Berlin Scharmützelsee Stan Eby
+Sporting Club Berlin Arnold Palmer
+Sporting Club Berlin Nick Faldo
+Sporting Club Berlin Jake McEwan
+Sporting Club Berlin Stan Eby
 St. Dionys
 St. Eurach
 St. Leon-Rot Rot
 St. Leon-Rot St. Leon
 St. Lorenz
+St. Peter-Ording
 Stadtwald
 Stahlberg im Lippetal
 Starnberg
-Steigenberger Hotel Treudelberg Hamburg
 Steigerwald in Geiselwind
 Steinhuder Meer
 Steisslingen
 Stenerberg
 Stenz
 Stiftland
+Stolper Heide
 Straubing
 Strelasund Mecklenburg-Vorpommern
 Strelasund Inselcourse
@@ -617,9 +672,11 @@ Stromberg-Schindeldorf
 Stuttgarter Solitude
 Syke
 Sylt
+Südeifel
 Sülfeld
+Talheimer Hof
 Talsperre Pöhl
-Taunus Weilrod
+Taunus-Weilrod
 Teck
 Tecklenburger Land
 Tegernbach
@@ -633,26 +690,29 @@ Thürk
 Tietlingen
 Timmendorfer Strand Nordplatz
 Timmendorfer Strand Südplatz
+Trages
+Treudelberg Hamburg
 Trier
 Tuniberg
 Tutzing
 Tölzer
 Uhlenberg Reken
+Ullersdorf
 Ulm
 Unna-Fröndenberg
 Urloffen
-V-Golf Sankt Urbanus
+V-Golf
 Van der Valk Serrahn
 Varmert
 Varus
 Vechta-Welpe
-Velbert Gut Kuhlendahl
+Velbert-Gut Kuhlendahl
 Velderhof
 Verden
 Vestischer Recklinghausen
 Vilsbiburg
-West Golf Troisdorf
-Winston Kranich
+Werdenfels
+WEST GOLF
 Winston Links
 Winston Open
 Waakirchen Tegernsee
@@ -660,14 +720,15 @@ Wagenfeld
 Waldbrunnen im Siebengebirge
 Waldeck
 Waldegg-Wiggensbach
-Warendorfer
+Warendorfer an der Ems
+Warnemünde
 Wasserburg Anholt
 Wasserschloss Westerwinkel
 Weidenhof
 Weiherhof
 Weimarer Land Feininger
 Weimarer Land Goethe
-Wendelinus Golfpark
+Wendelinus
 Wentorf-Reinbeker
 Werl
 Werne an der Lippe
@@ -677,15 +738,17 @@ Westerwald
 Westerzgebirge
 Westfälischer Gütersloh
 Westheim
-Westpfalz Schwarzbachtal
-Widukind Land
+Westpfalz, Schwarzbachtal
+Widukind-Land
 Wiesbadener
 Wiesensee
 Wildenrath
 Wildeshauser Geest
 Winnerod
 Winterberg
-Wittelsbacher Rohrenfeld
+Wittelsbacher Rohrenfeld-Neuburg
+Wittenbeck
+Wittgensteiner Land
 Wittkoppenberg
 Worms
 Worpswede
@@ -693,8 +756,9 @@ Wörthsee
 Wümme
 Würzburg
 Zieglers
-Zierenberg Gut Escheberg
+Zierenberg-Gut Escheberg
 Zollmühle
+Zschopau
 Zu Gut Ludwigsberg
 Zum Fischland
 Zur Amtsheide
