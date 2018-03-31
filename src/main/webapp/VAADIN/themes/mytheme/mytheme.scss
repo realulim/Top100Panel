@@ -113,4 +113,10 @@ $v-background-color: hsl(65, 30%, 95%);
     .SpaceBelowButtons {
         margin-bottom: 40px;
     }
+    .autocomplete-textfield {
+        width : 100%;
+    }
+    .autocomplete-suggestion-list-wrapper {
+        position: fixed;
+    }
 }

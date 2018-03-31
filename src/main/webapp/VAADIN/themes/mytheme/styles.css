@@ -15143,3 +15143,11 @@ div.v-layout.v-horizontal.v-widget {
 .mytheme .SpaceBelowButtons {
 	margin-bottom: 40px;
 }
+
+.mytheme .autocomplete-textfield {
+	width: 100%;
+}
+
+.mytheme .autocomplete-suggestion-list-wrapper {
+	position: fixed;
+}

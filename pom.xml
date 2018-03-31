@@ -74,9 +74,9 @@
             <version>2.1.1</version>
         </dependency>
         <dependency>
-	    <groupId>com.github.jnash67</groupId>
-	    <artifactId>tableexport-for-vaadin</artifactId>
-	    <version>f6e247d9de</version>
+            <groupId>com.github.jnash67</groupId>
+            <artifactId>tableexport-for-vaadin</artifactId>
+            <version>f6e247d9de</version>
             <exclusions>
                 <exclusion>
                     <groupId>com.github.jnash67.tableexport-for-vaadin</groupId>
@@ -85,15 +85,20 @@
             </exclusions>
         </dependency>
         <dependency>
-	    <groupId>com.github.realulim</groupId>
-	    <artifactId>vaadin-chatbox</artifactId>
-	    <version>6d45f2ead9</version>
+            <groupId>com.github.realulim</groupId>
+            <artifactId>vaadin-chatbox</artifactId>
+            <version>6d45f2ead9</version>
             <exclusions>
                 <exclusion>
                     <groupId>com.github.realulim.vaadin-chatbox</groupId>
                     <artifactId>chatbox-demo</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.vaadin.addons</groupId>
+            <artifactId>autocomplete</artifactId>
+            <version>0.2.2</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

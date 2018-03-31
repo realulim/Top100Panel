@@ -1,5 +1,6 @@
 package de.top100golfcourses.panel.component;
 
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
@@ -9,6 +10,7 @@ import com.vaadin.contextmenu.MenuItem;
 import com.vaadin.data.Binder;
 import com.vaadin.data.Binder.Binding;
 import com.vaadin.icons.VaadinIcons;
+import com.vaadin.server.Setter;
 import com.vaadin.server.ThemeResource;
 import com.vaadin.server.VaadinSession;
 import com.vaadin.ui.CustomComponent;
@@ -20,6 +22,9 @@ import com.vaadin.ui.TextField;
 import com.vaadin.ui.components.grid.EditorSaveEvent;
 import com.vaadin.ui.renderers.LocalDateRenderer;
 
+import org.vaadin.addons.autocomplete.AutocompleteExtension;
+
+import de.top100golfcourses.panel.da.Suggestions;
 import de.top100golfcourses.panel.entity.BucketColor;
 import de.top100golfcourses.panel.entity.RankedCourse;
 import de.top100golfcourses.panel.entity.Rankings;
@@ -32,12 +37,19 @@ public final class RankingGrid extends CustomComponent {
     private Rankings rankings;
     private boolean editable = false;
     private Grid<RankedCourse> grid;
+    private Suggestions suggestions;
 
     public RankingGrid() { }
 
     private void init() {
         List<RankedCourse> courses = rankings.getRankedCourses();
+        suggestions = new Suggestions(Paths.get("src/main/resources/courses.txt"));
+
         TextField nameField = new TextField();
+        AutocompleteExtension<String> nameExtension = new AutocompleteExtension<>(nameField);
+        nameExtension.setSuggestionListSize(10);
+        nameExtension.setSuggestionGenerator(suggestions::getCourseNameSuggestions);
+
         TextField commentsField = new TextField();
         DateField dateField = new DateField();
         grid = new Grid<>();
@@ -53,7 +65,7 @@ public final class RankingGrid extends CustomComponent {
 
         grid.addColumn(RankedCourse::getPos).setId("pos").setCaption("").setExpandRatio(0);
         grid.addColumn(course -> "").setId(BUCKET_COL_ID).setCaption("" + rankings.getRankedCourses().size()).setStyleGenerator(bucketStyleGenerator).setExpandRatio(0);
-        grid.addColumn(RankedCourse::getName).setId("course").setEditorComponent(nameField, RankedCourse::setName).setCaption("Course").setExpandRatio(1);
+        grid.addColumn(RankedCourse::getName).setId("course").setEditorComponent(nameField, createCourseNameSetter()).setCaption("Course").setExpandRatio(1);
         grid.addColumn(RankedCourse::getLastPlayed, new LocalDateRenderer("yyyy-MM-dd")).setId(PLAYED_COL_ID).setEditorBinding(lastPlayed).setCaption("Played").setExpandRatio(0);
         grid.addColumn(RankedCourse::getComments).setId("comments").setEditorComponent(commentsField, RankedCourse::setComments).setCaption("Comments").setExpandRatio(3);
 
@@ -77,6 +89,15 @@ public final class RankingGrid extends CustomComponent {
 
         // The composition root MUST be set
         setCompositionRoot(grid);
+    }
+
+    private Setter<RankedCourse, String> createCourseNameSetter() {
+        final Setter<RankedCourse, String> courseNameSetter = (RankedCourse course, String fieldValue) -> {
+            if (suggestions.isSuggestion(fieldValue)) {
+                course.setName(fieldValue);
+            }
+        };
+        return courseNameSetter;
     }
 
     private void installContextMenu() {
