@@ -1,9 +1,13 @@
 package de.top100golfcourses.panel.component;
 
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.vaadin.contextmenu.ContextMenu;
 import com.vaadin.contextmenu.MenuItem;
@@ -38,18 +42,26 @@ public final class RankingGrid extends CustomComponent {
     private Rankings rankings;
     private boolean editable = false;
     private Grid<RankedCourse> grid;
-    private Suggestions suggestions;
+    private Suggestions suggestions = null;
 
     public RankingGrid() { }
 
     private void init() {
         List<RankedCourse> courses = rankings.getRankedCourses();
-        suggestions = new Suggestions(Paths.get("src/main/resources/courses.txt"));
-
         TextField nameField = new TextField();
-        AutocompleteExtension<String> nameExtension = new AutocompleteExtension<>(nameField);
-        nameExtension.setSuggestionListSize(10);
-        nameExtension.setSuggestionGenerator(suggestions::getCourseNameSuggestions);
+        String suggestionsFile = "courses.txt";
+        URL resource = getClass().getClassLoader().getResource(suggestionsFile);
+
+        try {
+            if (resource == null) throw new URISyntaxException("", "Resource is null");
+            suggestions = new Suggestions(Paths.get(resource.toURI()));
+            AutocompleteExtension<String> nameExtension = new AutocompleteExtension<>(nameField);
+            nameExtension.setSuggestionListSize(10);
+            nameExtension.setSuggestionGenerator(suggestions::getCourseNameSuggestions);
+        }
+        catch (URISyntaxException ex) {
+            Logger.getAnonymousLogger().log(Level.SEVERE, suggestionsFile, ex);
+        }
 
         TextField commentsField = new TextField();
         DateField dateField = new DateField();
@@ -93,11 +105,19 @@ public final class RankingGrid extends CustomComponent {
     }
 
     private Setter<RankedCourse, String> createCourseNameSetter() {
-        final Setter<RankedCourse, String> courseNameSetter = (RankedCourse course, String fieldValue) -> {
-            if (suggestions.isSuggestion(fieldValue)) {
+        final Setter<RankedCourse, String> courseNameSetter;
+        if (suggestions == null) {
+            courseNameSetter = (RankedCourse course, String fieldValue) -> {
                 course.setName(fieldValue);
-            }
-        };
+            };
+        }
+        else {
+            courseNameSetter = (RankedCourse course, String fieldValue) -> {
+                if (suggestions.isSuggestion(fieldValue)) {
+                    course.setName(fieldValue);
+                }
+            };
+        }
         return courseNameSetter;
     }
 
