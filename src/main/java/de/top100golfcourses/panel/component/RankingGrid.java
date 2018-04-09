@@ -109,12 +109,14 @@ public final class RankingGrid extends CustomComponent {
         if (suggestions == null) {
             courseNameSetter = (RankedCourse course, String fieldValue) -> {
                 course.setName(fieldValue);
+                Logger.getAnonymousLogger().info("Input: " + course.toString());
             };
         }
         else {
             courseNameSetter = (RankedCourse course, String fieldValue) -> {
                 if (suggestions.isSuggestion(fieldValue)) {
                     course.setName(fieldValue);
+                    Logger.getAnonymousLogger().info("Input: " + course.toString());
                 }
             };
         }
@@ -175,6 +177,7 @@ public final class RankingGrid extends CustomComponent {
         this.rankings.insertRankedCourseAt(pos - 1, course);
         grid.setItems(this.rankings.getRankedCourses());
         grid.getColumn("bucket").setCaption("" + this.rankings.getRankedCourses().size());
+        Logger.getAnonymousLogger().info("Added Row: " + pos);
     }
 
     private void deleteRow() {
@@ -184,6 +187,7 @@ public final class RankingGrid extends CustomComponent {
             this.rankings.deleteRankedCourseAt(pos - 1);
             grid.setItems(this.rankings.getRankedCourses());
             grid.getColumn("bucket").setCaption("" + this.rankings.getRankedCourses().size());
+            Logger.getAnonymousLogger().info("Deleted Row: " + pos);
         }
     }
 

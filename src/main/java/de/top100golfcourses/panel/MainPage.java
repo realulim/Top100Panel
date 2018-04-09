@@ -154,7 +154,7 @@ public final class MainPage extends VerticalLayout implements View {
             saveRankingButton = new Button("Save Ranking");
             saveRankingButton.addClickListener((ClickEvent event) -> {
                 storage.save(rankingGrid.getRankings());
-                Logger.getAnonymousLogger().info(rankingGrid.getRankings().getRankedCourses().toString());
+                Logger.getAnonymousLogger().info("Saved Ranking with " + rankingGrid.getRankings().getRankedCourses().size() + " Courses.");
             });
             saveRankingButton.setIcon(VaadinIcons.CHECK_CIRCLE_O);
             saveRankingButton.addStyleName(ValoTheme.BUTTON_PRIMARY);
