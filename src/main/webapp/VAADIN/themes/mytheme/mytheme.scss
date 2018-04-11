@@ -54,6 +54,9 @@ $v-background-color: hsl(65, 30%, 95%);
     .v-margin-bottom {
         padding-bottom: 0px;
     }
+    .v-grid-cell.sortable {
+        padding: 0 11px;
+    }
     .v-grid-cell.colorGold {
         background-image: url('gold.png');
     }

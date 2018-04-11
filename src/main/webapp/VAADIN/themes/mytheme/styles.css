@@ -15068,6 +15068,10 @@ div.v-layout.v-horizontal.v-widget {
 	padding-bottom: 0px;
 }
 
+.mytheme .v-grid-cell.sortable {
+	padding: 0 11px;
+}
+
 .mytheme .v-grid-cell.colorGold {
 	background-image: url('gold.png');
 }
