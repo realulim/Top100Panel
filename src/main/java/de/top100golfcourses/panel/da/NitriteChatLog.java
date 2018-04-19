@@ -22,10 +22,10 @@ public class NitriteChatLog implements ChatLog {
         try (Nitrite db = Nitrite.builder().compressed().filePath(ChatLog.DB).openOrCreate()) {
             ObjectRepository<ChatEntry> repo = db.getRepository(ChatEntry.class);
             WriteResult result = repo.insert(chatEntry);
-            Logger.getAnonymousLogger().info("Inserted: " + result.getAffectedCount() + " (" + chatEntry.getId() + ")");
+            Logger.getAnonymousLogger().info("Inserted: " + result.getAffectedCount() + " (" + chatEntry.toString() + ")");
         }
         catch (NitriteException ex) {
-            Logger.getAnonymousLogger().severe(chatEntry.toString());
+            Logger.getAnonymousLogger().severe(ex.toString() + ": " + chatEntry.toString());
             throw ex;
         }
     }
@@ -40,7 +40,7 @@ public class NitriteChatLog implements ChatLog {
             return result;
         }
         catch (NitriteException ex) {
-            Logger.getAnonymousLogger().severe("Cannot read " + ChatLog.DB);
+            Logger.getAnonymousLogger().severe(ex.toString() + ": cannot read " + ChatLog.DB);
             throw ex;
         }
     }
